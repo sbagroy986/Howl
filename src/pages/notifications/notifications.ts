@@ -38,9 +38,8 @@ export class NotificationsPage {
         users: 
         [
           {
-            name: 'Babuw', 
-            // picture: "../assets/icon/favicon.ico"
-            picture: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQRvcAa7nl4uoVvuBEgV8wYEI1AIai17PXtUbZvyLU3fqAKKT6GpUeWgMM"
+            name: 'John J. Gamel', 
+            picture: "../assets/img/img (11).jpg"
           }, 
           {
             name: 'Ballu'
@@ -57,8 +56,8 @@ export class NotificationsPage {
         }, users: 
         [
           { 
-            name: 'Ramesh Yadav', 
-            picture: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQRvcAa7nl4uoVvuBEgV8wYEI1AIai17PXtUbZvyLU3fqAKKT6GpUeWgMM"
+            name: 'Dominic Cobb', 
+            picture: "../assets/img/img (11).png"
             // picture: "../assets/icon/favicon.ico"
           }
         ]
