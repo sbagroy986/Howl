@@ -27,30 +27,30 @@ export class ChatPage {
   	//fetch messages from DB
   	this.messages=
     [
-      {user: 
+      {user:
         {
           name: "User3", id: 5,
-          me: false, 
-          picture: "../assets/img/img (11).jpg"
-        }, 
+          me: false,
+          picture: "./assets/img/img (11).jpg"
+        },
           text: "Hi, I was planning to go to this new place called Panda Express."
       },
       {
-        user: 
+        user:
         {
-          name: "User1", id: 6, 
-          me: true, 
-          picture: "../assets/img/img (11).png"
-        }, 
+          name: "User1", id: 6,
+          me: true,
+          picture: "./assets/img/img (11).png"
+        },
           text: "Yeah sure! What time do you want to go?"
       },
       {
-        user: 
+        user:
           {
-            name: "User2", id: 6, 
-          me: false, 
-            picture: "../assets/img/img (11).jpg"
-          }, 
+            name: "User2", id: 6,
+          me: false,
+            picture: "./assets/img/img (11).jpg"
+          },
           text: "Let's go around 2PM. We can meet at the metro station."
       }
 
