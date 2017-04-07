@@ -20,9 +20,51 @@ export class NotificationsPage {
   	this.getNotifications();
   }
 
-  getNotifications() {
-  //add call to server to fetch notifications(user);
-  	this.notifications=[{type: 'request', activity: {name: 'Activity1', description: 'Misc',id: 1,creator: {id: 22}}, users: [{name: 'Babu', picture: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQRvcAa7nl4uoVvuBEgV8wYEI1AIai17PXtUbZvyLU3fqAKKT6GpUeWgMM"}, {name: 'Ballu'}]},{type: 'accept', activity: {creator: {id: 22},name: 'Activity2', description: 'Misc',id: 2}, users: [{name: 'Chalu', picture: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQRvcAa7nl4uoVvuBEgV8wYEI1AIai17PXtUbZvyLU3fqAKKT6GpUeWgMM"}]}];
+  getNotifications() 
+  {
+    //add call to server to fetch notifications(user);
+  	this.notifications =
+    [
+      {
+        type: 'request', 
+        read: 'false',
+        activity: 
+        {
+          name: 'Lunch at Epicuria', description: 'Misc',id: 1,creator: 
+          {
+            id: 22
+          }
+        }, 
+        users: 
+        [
+          {
+            name: 'Babuw', 
+            // picture: "../assets/icon/favicon.ico"
+            picture: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQRvcAa7nl4uoVvuBEgV8wYEI1AIai17PXtUbZvyLU3fqAKKT6GpUeWgMM"
+          }, 
+          {
+            name: 'Ballu'
+          }
+        ]
+      },
+      {
+        type: 'accept', 
+        read: 'true',
+        activity: 
+        {
+          creator: {id: 22},
+          name: 'Play Tennis at IIITD', description: 'Misc',id: 2
+        }, users: 
+        [
+          { 
+            name: 'Ramesh Yadav', 
+            picture: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQRvcAa7nl4uoVvuBEgV8wYEI1AIai17PXtUbZvyLU3fqAKKT6GpUeWgMM"
+            // picture: "../assets/icon/favicon.ico"
+          }
+        ]
+      }
+
+    ];
   }
 
   openActivity(activity){

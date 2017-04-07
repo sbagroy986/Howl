@@ -1,20 +1,37 @@
 <ion-header>
   <ion-navbar color="white">
     <ion-title>
-    <p> My Notifications</p>
+    <p> Notifications</p>
     </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <ion-item *ngFor="let notif of notifications"> 
-  <hr>
-  <div (click)="openActivity(notif.activity)">
-  	<img src="{{notif.users[0].picture}}" style="float:left" />
-  	<p *ngIf="notif.type === 'request'" style="margin-left:80px;">{{notif.users[0].name}} and {{notif.users.length -1}} other user(s) are interested in your event.</p>
-  	<p *ngIf="notif.type === 'accept'" style="margin-left:80px;">{{notif.users[0].name}} accepted your request to join there activity {{notif.activity.name}}.</p>
+<ion-content class="panel">
+  <div class="panel">
+
+  <ion-card *ngFor="let notif of notifications" (click)="openActivity(notif.activity)">
+      <ion-card-content>
+      <ion-row>
+        <ion-col col-3>
+          <img src="{{notif.users[0].picture}}" class="round-image" />
+        </ion-col>
+        <ion-col col-8>
+          <div class="notif-content">
+            <p *ngIf="notif.type === 'request'">
+              <b>{{notif.users[0].name}}</b> and <b>{{notif.users.length -1}} other user</b> are interested in your event <b>{{notif.activity.name}}</b>.
+            </p>
+            <p *ngIf="notif.type === 'accept'" >
+              <b>{{notif.users[0].name}}</b> accepted your request to join their activity <b>{{notif.activity.name}}</b>.
+            </p>
+          </div>
+        </ion-col>
+        <ion-col col-1 style="margin:auto;">
+          <div class="unread primary"></div>
+        </ion-col>
+      </ion-row>
+      </ion-card-content>
+  </ion-card>
+
+
   </div>
-  <hr>
-  <br/>
-  </ion-item>
 </ion-content>

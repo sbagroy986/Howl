@@ -13,10 +13,10 @@ import { UserProfilesPage } from '../user-profiles/user-profiles';
 export class TabsPage {
   // this tells the tabs component which Pages
   // should be each tab's root Page
-  tab1Root: any = HomePage;
+  tab4Root: any = HomePage;
   tab2Root: any = MyActivitiesPage;
   tab3Root: any = CreateActivityPage;
-  tab4Root: any = NotificationsPage;
+  tab1Root: any = NotificationsPage;
   tab5Root: any = UserProfilesPage;
 
   constructor() {
