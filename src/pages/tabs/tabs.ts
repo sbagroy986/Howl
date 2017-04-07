@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { ModalController, NavController, NavParams } from 'ionic-angular';
 
 import { HomePage } from '../home/home';
-import { SettingsPage } from '../settings/settings';
 import { NotificationsPage } from '../notifications/notifications';
 import { MyActivitiesPage } from '../my-activities/my-activities';
 import { CreateActivityPage } from '../create-activity/create-activity';

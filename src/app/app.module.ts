@@ -3,6 +3,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 // import { AboutPage } from '../pages/about/about';
 // import { ContactPage } from '../pages/contact/contact';
+import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 
@@ -11,6 +12,7 @@ import { FilterPage } from '../pages/filter/filter';
 import { SettingsPage } from '../pages/settings/settings';
 import { NotificationsPage } from '../pages/notifications/notifications';
 import { MyActivitiesPage } from '../pages/my-activities/my-activities';
+import { ChooseInterestPage } from '../pages/choose-interest/choose-interest';
 import { CreateActivityPage } from '../pages/create-activity/create-activity';
 import { ActivityPage } from '../pages/activity/activity';
 import { ChatPage } from '../pages/chat/chat';
@@ -33,6 +35,7 @@ import { Geolocation } from '@ionic-native/geolocation';
     MyApp,
     // AboutPage,
     // ContactPage,
+    LoginPage,
     HomePage,
     TabsPage,
     FilterPage,
@@ -40,6 +43,7 @@ import { Geolocation } from '@ionic-native/geolocation';
     SettingsPage,
     NotificationsPage,
     MyActivitiesPage,
+    ChooseInterestPage,
     CreateActivityPage,
     ActivityPage,
     ChatPage,
@@ -59,6 +63,7 @@ import { Geolocation } from '@ionic-native/geolocation';
     MyApp,
     // AboutPage,
     // ContactPage,
+    LoginPage, 
     HomePage,
     TabsPage,
     FilterPage,
@@ -66,6 +71,7 @@ import { Geolocation } from '@ionic-native/geolocation';
     SettingsPage,
     NotificationsPage,
     MyActivitiesPage,
+    ChooseInterestPage,
     CreateActivityPage,
     ActivityPage,
     ChatPage,

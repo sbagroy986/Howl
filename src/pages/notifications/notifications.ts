@@ -20,45 +20,45 @@ export class NotificationsPage {
   	this.getNotifications();
   }
 
-  getNotifications() 
+  getNotifications()
   {
     //add call to server to fetch notifications(user);
   	this.notifications =
     [
       {
-        type: 'request', 
+        type: 'request',
         read: 'false',
-        activity: 
+        activity:
         {
-          name: 'Lunch at Epicuria', description: 'Misc',id: 1,creator: 
+          name: 'Lunch at Epicuria', description: 'Misc',id: 1,creator:
           {
             id: 22
           }
-        }, 
-        users: 
+        },
+        users:
         [
           {
-            name: 'John J. Gamel', 
-            picture: "../assets/img/img (11).jpg"
-          }, 
+            name: 'John J. Gamel',
+            picture: "./assets/img/img (11).jpg"
+          },
           {
             name: 'Ballu'
           }
         ]
       },
       {
-        type: 'accept', 
+        type: 'accept',
         read: 'true',
-        activity: 
+        activity:
         {
           creator: {id: 22},
           name: 'Play Tennis at IIITD', description: 'Misc',id: 2
-        }, users: 
+        }, users:
         [
-          { 
-            name: 'Dominic Cobb', 
-            picture: "../assets/img/img (11).png"
-            // picture: "../assets/icon/favicon.ico"
+          {
+            name: 'Dominic Cobb',
+            picture: "./assets/img/img (11).png"
+            // picture: "../resources/icon/favicon.ico"
           }
         ]
       }

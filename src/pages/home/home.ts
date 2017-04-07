@@ -50,11 +50,11 @@ export class HomePage {
     let button=(<HTMLInputElement>document.getElementById(activity_id));
     if (button.innerText === "Interested"){
       //add code for removing interests in call(activity_if,this.user)
-      button.style.background='grey';
-      button.innerText="Interested?";
+      button.style.background='#b89981';
+      button.innerText="Interested";
     }
     else{
-      button.style.background='green';
+      button.style.background='grey';
       button.innerText="Interested";
     }
   }
