@@ -1,3 +1,46 @@
 page-activity {
-	
+	.content{
+		padding: 5%;
+		background-color: white;
+	}
+	.contentInCircle{
+		position:absolute;
+		top:20px;
+		margin-left:-5px		
+	}
+
+
+	.round-image{
+		width: 50px;
+		height: 50px;
+
+		/* fill the container, preserving aspect ratio, and cropping to fit */
+		background-size: cover;
+
+		/* center the image vertically and horizontally */
+		background-position: center;
+
+		/* round the edges to a circle with border radius 1/2 container size */
+		border-radius: 50%;
+		/*border-color: #b89981;*/
+		/*border-width: 4px;*/
+		border: 2px solid #b89981;
+	}
+
+	.round-div{
+		width: 50px;
+		height: 50px;
+
+		/* fill the container, preserving aspect ratio, and cropping to fit */
+		background-size: cover;
+
+		/* center the image vertically and horizontally */
+		background-position: center;
+
+		background-color: white;
+
+		/* round the edges to a circle with border radius 1/2 container size */
+		border-radius: 50%;
+	}
+
 }

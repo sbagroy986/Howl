@@ -15,16 +15,7 @@
 </ion-header>
 
 <ion-content>
-<div margin=auto>
-  <!-- <h6>
-    <ion-icon color="main" name="calendar"></ion-icon>
-    <span color="titles" style="font-weight:normal;">&nbsp;&nbsp;&nbsp;3 April 2017 | 6PM</span>
-  </h6>
-  <h6>
-    <ion-icon color="main" name="pin"></ion-icon>
-    <span color="titles" style="font-weight:normal;">&nbsp;&nbsp;&nbsp;Epicuria, Nehru Place</span>
-    <ion-icon color="main" name="ios-navigate-outline"></ion-icon>
-  </h6>   -->
+<div class="content">
   <ion-row>
     <ion-col col-2>
       <ion-icon color="main" name="calendar" style="font-size:20px;"></ion-icon>
@@ -45,17 +36,34 @@
     </ion-col>
   </ion-row>
 
-  <div margin-top=auto margin-bottom=auto>
-    <h6>About</h6>
-      <!-- p>{{activity.description}}</p> -->
-    <p>Looking for people to go to Epicuria with. Heard it's a great place with lots of restaurants! Would love to try Panda Express.</p>
+  <h6>About</h6>
+  <!-- p>{{activity.description}}</p> -->
+  <p>Looking for people to go to Epicuria with. Heard it's a great place with lots of restaurants! Would love to try Panda Express.</p>
+</div>
+
+<div style="background-color:#f5f5f5;" padding=3%>
+  <h6 style="font-size:12px;">GOING ({{activity.going.length}})</h6>
+  <ion-row>
+    <ion-col col-3 *ngFor="let user of going_users_visible">
+     <img (click)="viewUser(user)" src="{{user.picture}}" class="round-image" />
+    </ion-col>
+    <ion-col col-3 *ngIf="more_going === true">
+      <div class="round-div" color="main" align="center"><span class="contentInCircle">+{{left_going}}</span></div>
+    </ion-col>
+  </ion-row>
+</div>
+
+<div class="content">
+  <div class="row"  margin-top=auto margin-bottom=auto>
+    <div class="col col-6"  align="center">
+      <button ion-button color="main" style="width:98%">Requests ({{interested_users.length}})</button>
+    </div>
+    <div class="col col-6" align="center">
+      <button ion-button color="main" style="width:98%" outline (click)="editActivity()">Edit</button>
+    </div>
   </div>
 
-  <div style="background-color:#f5f5f5">
-    asndaksh
-  </div>
-
-  <p>Users going:</p>
+  <!-- <p>Users going:</p>
   <div *ngFor="let user of going_users">
     <div>
       <img (click)="viewUser(user)" src="{{user.picture}}" height="50px" width="50px" style="float:left" /> <p (click)="viewUser(user)">{{user.name}}</p>
@@ -77,6 +85,6 @@
         <ion-buttons end>
           <button ion-button icon-only (click)="editActivity()"><ion-icon name="pen"></ion-icon></button>
         </ion-buttons>
-      </div>
+      </div> -->
 </div>
 </ion-content>
