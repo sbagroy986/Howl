@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar color="white">
     <ion-title>
-    <div>Group chat</div>
+    <div>{{activity.name}}</div>
     </ion-title>
     <ion-buttons start>
       <button ion-button icon-only (click)="close()"><ion-icon name="back"></ion-icon></button>
@@ -10,14 +10,47 @@
 </ion-header>
 
 <ion-content>
-<br/>
-<br/>
-<div *ngFor="let msg of messages" style="margin-left:30px;">
-  <img src="{{msg.user.picture}}" height="50px" width="50px" style="float:left" /> {{msg.text}}
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-</div>
+  <div class="content">
+    <ion-grid>
+      <div *ngFor="let msg of messages">
+      <div *ngIf="msg.user.me === false"> 
+        <ion-row>
+            <ion-col col-3>
+              <img src="{{msg.user.picture}}" class="round-image" style="margin: auto" /> 
+            </ion-col>
+            <ion-col col-8>
+              <div class="messageBody messageBody{{msg.user.me}}">
+                {{msg.text}}
+              </div>
+            </ion-col>
+            <ion-col col-1>
+            </ion-col>
+        </ion-row>
+
+      </div>        
+      <div *ngIf="msg.user.me === true"> 
+        <ion-row>
+            <ion-col col-1>
+            </ion-col>
+            <ion-col col-8>
+              <div class="messageBody messageBody{{msg.user.me}}">
+                {{msg.text}}
+              </div>
+            </ion-col>
+            <ion-col col-3 style="margin:auto">
+              <img src="{{msg.user.picture}}" class="round-image" style="margin: auto"/> 
+            </ion-col>
+        </ion-row>
+
+        </div>        
+
+      </div>        
+    </ion-grid>        
+  </div>
+  <div class="bottom">
+    <ion-item >
+      <ion-label><ion-icon name="ios-attach-outline"></ion-icon></ion-label>
+      <ion-input color="primary" style="width: 80%" placeholder="Message"></ion-input>
+    </ion-item>
+  </div>
 </ion-content>
