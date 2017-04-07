@@ -39,7 +39,7 @@ export class NotificationsPage {
         [
           {
             name: 'John J. Gamel', 
-            picture: "../assets/img/img (11).jpg"
+            picture: "../resources/img/img (11).jpg"
           }, 
           {
             name: 'Ballu'
@@ -57,8 +57,8 @@ export class NotificationsPage {
         [
           { 
             name: 'Dominic Cobb', 
-            picture: "../assets/img/img (11).png"
-            // picture: "../assets/icon/favicon.ico"
+            picture: "../resources/img/img (11).png"
+            // picture: "../resources/icon/favicon.ico"
           }
         ]
       }
