@@ -27,16 +27,16 @@ export class ActivityTitlePage {
   }
 
   ionViewDidLoad(){
-	let n=(<HTMLInputElement>document.getElementById("next_button"));
+	let n=(<HTMLInputElement>document.getElementById("next_n_button"));
 	n.style.display="none";	
 	document.getElementById("title_input").addEventListener("keyup", function() {
 		let button=(<HTMLInputElement>document.getElementById("title_input"));
 		if (button.value.length == 0){
-			let next=(<HTMLInputElement>document.getElementById("next_button"));
+			let next=(<HTMLInputElement>document.getElementById("next_n_button"));
 			next.style.display="none";
 		}
 		else{
-			let next=(<HTMLInputElement>document.getElementById("next_button"));
+			let next=(<HTMLInputElement>document.getElementById("next_n_button"));
 			next.style.display="inline";			
 		}
        }, false);

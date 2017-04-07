@@ -1,12 +1,17 @@
-<ion-content>
+<ion-content style="background:#333333;color:white;">
+	<br/>
+	<br/>
 	<ion-buttons start>
-	  <button ion-button icon-only (click)="close()"><ion-icon name="arrow-round-back"></ion-icon></button>
+	 	<button icon-only (click)="close()" style="background-color:#333333;"><ion-icon name="arrow-round-back" style="color:#b89981;background-color:#333333;"></ion-icon></button>
 	</ion-buttons>
+	<div style="margin-left:80px">
+		<br/>
+		<br/>
+		<p style="font-size:20px;color:#b89981;">Activity Details</p>
+		<br/>
+		<br/>
+		<input type="text" [(ngModel)]="details" id="desc_input" style="background-color:#333333;outline: none;border-top:none;border-right:none;border-left: none;border-bottom: 1px white 1px;margin-top:50px;" placeholder="Activity Details..." />
+		<button style="float:right;margin-right:50px;background-color:#333333;margin-top:45px;size: 50px" ion-button icon-only (click)="finish()" id="finish_button"><ion-icon name="arrow-round-forward" style="color:#b89981;background-color:#333333;"></ion-icon></button>		
+	</div>
 	<br/>
-	<br/>
-	<h2>Description?</h2>
-	<br/>
-	<br/>
-	<input type="text" [(ngModel)]="description" id="desc_input"/>
-	<button ion-button icon-only (click)="finish()" id="finish_button"><ion-icon name="done-all"></ion-icon></button>
 </ion-content>

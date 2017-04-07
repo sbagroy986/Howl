@@ -1,19 +1,29 @@
-<ion-content>
+<ion-content style="background:#333333;color:white;">
+	<br/>
+	<br/>
 	<ion-buttons start>
-	  <button ion-button icon-only (click)="close()"><ion-icon name="arrow-round-back"></ion-icon></button>
+	 	<button icon-only (click)="close()" style="background-color:#333333;"><ion-icon name="arrow-round-back" style="color:#b89981;background-color:#333333;"></ion-icon></button>
 	</ion-buttons>
 	<br/>
 	<br/>
-	<div (click)="createActivity('Map')">+ New Activity</div>
 	<br/>
-	<br/>
-	<div *ngIf="activities.length != 0">Similar activities:</div>
-    <div *ngFor="let activity of activities">
-    	<div (click)="viewActivity(activity)">
-	    	<img src="{{activity.picture}}"/>
-	    	<p>{{activity.name}}</p>
-    	</div>
-    </div>
-	<br/>
+	<div style="margin-left:25px;color:white">
+	   <div style="color:white;margin-left:30px" (click)="createActivity()"><ion-icon name="ios-add-circle-outline"></ion-icon> Create New Activity</div>
+		<br/>
+	   <ion-card (click)="openActivity(activity)" *ngFor="let activity of activities">
+	      <ion-card-content>
+	        <ion-row>
+	          <ion-col col-4 class="valign_center">
+	            <img src="{{activity.picture}}" class="round-image" />
+	          </ion-col>
+	          <ion-col col-8>
+	            <h2>{{activity.name}}</h2>
+	            <p>Created by <b>{{activity.creator.name}}</b></p>
+	            <p color = "main">{{activity.going.length}} going </p>
+	          </ion-col>
+	        </ion-row>
+	      </ion-card-content>
+    </ion-card> 		
+	</div>
 	<br/>
 </ion-content>

@@ -19,6 +19,7 @@ export class ActivityDetailsPage {
   public time:any;
   public loc:any;
   public title:any;
+  public details:any;
   
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   	this.interest=this.navParams.get('interest');
