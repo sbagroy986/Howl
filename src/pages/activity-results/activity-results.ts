@@ -25,8 +25,12 @@ export class ActivityResultsPage {
   	this.date=this.navParams.get('date');
   	this.time=this.navParams.get('time');
   	this.loc=this.navParams.get('loc');
-	this.title=this.navParams.get('title');
-	this.findActivities();
+  	this.title=this.navParams.get('title');
+  	this.findActivities();
+  }
+
+  close(){
+    this.navCtrl.pop();
   }
 
   findActivities(){
@@ -55,5 +59,11 @@ export class ActivityResultsPage {
       location: this.loc,
       title:this.title       
      })
-  }  
+  }
+
+  openActivity(activity){
+    this.navCtrl.push(ActivityPage, {
+      activity: activity
+    });
+  }    
 }

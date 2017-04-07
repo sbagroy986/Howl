@@ -1,12 +1,26 @@
-<ion-content>
+<ion-content style="background:#333333;color:white;">
+	<br/>
+	<br/>
 	<ion-buttons start>
-	  <button ion-button icon-only (click)="close()"><ion-icon name="arrow-round-back"></ion-icon></button>
+	 	<button icon-only (click)="close()" style="background-color:#333333;"><ion-icon name="arrow-round-back" style="color:#b89981;background-color:#333333;"></ion-icon></button>
 	</ion-buttons>
+	<div style="margin-left:80px">
+		<br/>
+		<br/>
+		<p style="font-size:20px;color:#b89981;">When?</p>
+		<br/>
+		<br/>
+		<div (click)="next(tenam)">{{tenam_string}}</div>
+		<br/>
+		<div (click)="next(fourpm)">{{fourpm_string}}</div>
+		<br/>
+		<div (click)="next(sixpm)">{{sixpm_string}}</div>
+		<br/>
+		<div (click)="next(eightpm)">{{eightpm_string}}</div>
+	</div>
+	<ion-item style="color:white;background:#333333;float:left;border-radius: 10px;border-color:white;font-size: 1.4rem;margin-left:65px" no-lines>
+	  <ion-label>Other</ion-label>
+	  <ion-datetime displayFormat="HH:MM" pickerFormat="h:mm A" [(ngModel)]="time" (ionChange)="next('picker')"></ion-datetime>
+	</ion-item>
 	<br/>
-	<br/>
-	<h2>Time?</h2>
-	<br/>
-	<br/>
-	<div (click)="next('Flexible')">Flexible</div>
-	<div (click)="next('Time')">CLOCK?</div>
 </ion-content>
