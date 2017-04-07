@@ -18,25 +18,37 @@
 </ion-header>
 
 <ion-content>
+<img src="{{user.picture}}">
+<ion-grid style ="background-color:#f5f5f5 ">
+  <ion-row style = "text-align:center">
+    <ion-col col-4> <strong> {{user.followers}} </strong> <br> Followers </ion-col>
+    <ion-col col-4> <strong> {{user.following}} </strong> <br> Following</ion-col>
+    <ion-col col-4> <strong> {{user.activity_count}} </strong> <br> Activities</ion-col>
+  </ion-row>
+</ion-grid>
+<div style="margin-left: 12px;">
+<h6><strong>{{user.name}}</strong></h6>
+ {{user.interests}}
 <br/>
+ Age {{user.age}}
 <br/>
-<img src="{{user.picture}}"/>
-<p>{{user.name}}</p>
-<br/>
-<br/>
-<h4>About</h4>
+</div>
 <hr>
-<p>{{user.about}}</p>
-<br/>
+<div style="margin-left: 12px;">
+<h6><strong>About</strong></h6>
+{{user.about}}
 <hr>
-<br/>
-<h4>Activities</h4>
+<h6><strong>Occupation</strong></h6>
+{{user.occupation}}
+<!-- <hr>
+<h6><strong>Activities</strong></h6>
 <hr>
 <div *ngFor="let activity of user.activities"> 
 <div (click)="viewActivity(activity)">
     <h6>{{activity.name}}</h6>
     <p>{{activity.description}}</p>
 </div>
+</div> -->
 <hr>
 </div>
 </ion-content>
