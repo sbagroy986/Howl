@@ -1,0 +1,26 @@
+page-choose-interest {
+	.abc{
+
+	}
+
+	input[type=checkbox] {
+		display:none;
+	}
+	 
+	
+	input[type=checkbox] + label
+	{
+		/*background: url("http://www.corporatecomplianceinsights.com/wp-content/uploads/2013/06/Facebook-thumbs-up.jpg") no-repeat;*/
+		opacity: 0.2;filter: alpha(opacity=20);
+		display:inline-block;
+
+	}
+	input[type=checkbox]:checked + label
+	{
+		/*background: url("http://thepridepost.com/wp-content/uploads/2013/10/Facebook-thumbs-down.jpg") no-repeat;*/
+		opacity: 1;filter: alpha(opacity=100);
+		display:inline-block;
+	}
+
+
+}

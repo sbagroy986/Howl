@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { ChooseInterestPage } from '../choose-interest/choose-interest';
 
 /*
   Generated class for the Settings page.
@@ -21,6 +22,7 @@ export class SettingsPage {
     this.fixUser(this.navParams);
   }
 
+
   fixUser(params) {
     if(!params.get('user')){
       this.user=this.auth_user;
@@ -38,5 +40,11 @@ export class SettingsPage {
   back(){
   	this.navCtrl.pop();
   }
+  interestPage(){
+    this.navCtrl.push(ChooseInterestPage,{
+      user_interests: ["Food","Photography","Comics"]
+    });
+  }
+
 
 }

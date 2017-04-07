@@ -11,6 +11,7 @@ import { FilterPage } from '../pages/filter/filter';
 import { SettingsPage } from '../pages/settings/settings';
 import { NotificationsPage } from '../pages/notifications/notifications';
 import { MyActivitiesPage } from '../pages/my-activities/my-activities';
+import { ChooseInterestPage } from '../pages/choose-interest/choose-interest';
 import { CreateActivityPage } from '../pages/create-activity/create-activity';
 import { ActivityPage } from '../pages/activity/activity';
 import { ChatPage } from '../pages/chat/chat';
@@ -37,6 +38,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SettingsPage,
     NotificationsPage,
     MyActivitiesPage,
+    ChooseInterestPage,
     CreateActivityPage,
     ActivityPage,
     ChatPage,
@@ -61,6 +63,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SettingsPage,
     NotificationsPage,
     MyActivitiesPage,
+    ChooseInterestPage,
     CreateActivityPage,
     ActivityPage,
     ChatPage,
