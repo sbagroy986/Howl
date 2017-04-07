@@ -22,10 +22,10 @@ export class MyActivitiesPage {
 
   fetchMyActivities(user){
   	//query server/DB to get active activities(user);
-  	this.my_activities=[{name: "Lunch at Epicuria", picture: "../assets/img/food.jpg", creator: {name: "Ramit Shah", id: 1}, 
+  	this.my_activities=[{name: "Lunch at Epicuria", picture: "../resources/img/food.jpg", creator: {name: "Ramit Shah", id: 1}, 
     going:[{name: "Person1", picture:"https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQRvcAa7nl4uoVvuBEgV8wYEI1AIai17PXtUbZvyLU3fqAKKT6GpUeWgMM"}, 
     {name: "Person2", picture: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQRvcAa7nl4uoVvuBEgV8wYEI1AIai17PXtUbZvyLU3fqAKKT6GpUeWgMM"}]},
-    {name: "Party at HKV!", picture: "../assets/img/party.jpg", creator: {name: "Rhea Chawla", id: 2}, 
+    {name: "Party at HKV!", picture: "../resources/img/party.jpg", creator: {name: "Rhea Chawla", id: 2}, 
     going:[{name: "Person1", picture:"https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQRvcAa7nl4uoVvuBEgV8wYEI1AIai17PXtUbZvyLU3fqAKKT6GpUeWgMM"}, 
     {name: "Person2", picture: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQRvcAa7nl4uoVvuBEgV8wYEI1AIai17PXtUbZvyLU3fqAKKT6GpUeWgMM"},
     {name: "Person3", picture:"https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQRvcAa7nl4uoVvuBEgV8wYEI1AIai17PXtUbZvyLU3fqAKKT6GpUeWgMM"}, 
