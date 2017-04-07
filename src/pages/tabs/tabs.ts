@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ModalController, NavController, NavParams } from 'ionic-angular';
 
 import { HomePage } from '../home/home';
 import { NotificationsPage } from '../notifications/notifications';
@@ -18,7 +19,13 @@ export class TabsPage {
   tab4Root: any = NotificationsPage;
   tab5Root: any = UserProfilesPage;
 
-  constructor() {
+  constructor(public modalCtrl: ModalController) {
 
+  }
+
+  createActivity(){
+    console.log("here");
+    let addModal = this.modalCtrl.create(CreateActivityPage);
+    addModal.present();    
   }
 }

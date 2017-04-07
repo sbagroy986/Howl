@@ -1,15 +1,26 @@
-<ion-header>
-  <ion-navbar color="white">
-    <ion-title>
-      Create Activity
-    </ion-title>
-  	<ion-buttons end>
-        <button ion-button icon-only (click)="next()"> <ion-icon name="arrow-dropright-circle"></ion-icon></button>
-    </ion-buttons>
-  	</ion-navbar>
-</ion-header>
 
 <ion-content>
-<h3 style="margin-left:10px">What you wanna do: </h3>
-	<input type="text" [(ngModel)]="what" maxlength="100" />
+<ion-buttons start>
+  <button ion-button icon-only (click)="close()" style="background-color:#333333;"><ion-icon name="close" style="color:#b89981;background-color:#333333;"></ion-icon></button>
+</ion-buttons>
+  <ion-grid>
+    <ion-row>
+    	<ion-col col-6 *ngFor="let interest of interests">
+        <div (click)=next(interest)>
+          <ion-card  style="width: 100%; margin-left: 0px">
+            <img style="height: 100px" src="./assets/img/{{interest.name}}.jpg"/>
+            <ion-card-content>
+            <ion-card-title>
+            <div class="card-title">{{interest.name}}</div>
+            </ion-card-title>
+            <div style="font-size: 12px">
+            {{interest.description}}
+            </div>
+            </ion-card-content>
+          </ion-card>
+          </div>
+      	<!-- <hr> -->
+        </ion-col>
+      </ion-row>
+    </ion-grid>
 </ion-content>

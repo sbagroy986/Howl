@@ -2,46 +2,89 @@
   <ion-navbar color="white">
     <div *ngIf="my_profile == false"> 
       <ion-buttons start>
-        <button ion-button icon-only (click)="close()"><ion-icon name="back"></ion-icon></button>
+        <button ion-button icon-only color="main" (click)="close()"><ion-icon name="back"></ion-icon></button>
       </ion-buttons>
     </div>
     <ion-title>
-    <div> {{activity.name}}</div>
+      <p> {{activity.name}}</p>
     </ion-title>
-    <div *ngIf="my_activity == true"> 
-      <ion-buttons end>
-        <button ion-button icon-only (click)="editActivity()"><ion-icon name="pen"></ion-icon></button>
-      </ion-buttons>
-    </div>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="chat(activity)"><ion-icon name="ios-chatbubbles-outline"></ion-icon></button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-<br/>
-<hr>
-<br/>
-<img src="{{activity.picture}}" style="float:left;"/>
-<h3>{{activity.name}}</h3>
-<br/>
-<br/>
-<h6>{{activity.description}}</h6>
-<br/>
-<p>Users going:</p>
-<div *ngFor="let user of going_users">
-  <div>
-    <img (click)="viewUser(user)" src="{{user.picture}}" height="50px" width="50px" style="float:left" /> <p (click)="viewUser(user)">{{user.name}}</p>
-  <br/>
-  <br/>
-  </div>
+<div class="content">
+  <ion-row>
+    <ion-col col-2>
+      <ion-icon color="main" name="calendar" style="font-size:20px;"></ion-icon>
+    </ion-col>
+    <ion-col col-8>
+      <span style="font-size:15px;">3 April 2017 | 6PM</span>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col col-2>
+      <ion-icon color="main" name="pin" style="font-size:20px;"></ion-icon>
+    </ion-col>
+    <ion-col col-8>
+      <span style="font-size:15px;">Epicuria, Nehru Place</span>
+    </ion-col>
+    <ion-col col-2>
+      <ion-icon color="main" style="float:right;font-size:20px;" name="ios-navigate-outline"></ion-icon>
+    </ion-col>
+  </ion-row>
+
+  <h6>About</h6>
+  <!-- p>{{activity.description}}</p> -->
+  <p>Looking for people to go to Epicuria with. Heard it's a great place with lots of restaurants! Would love to try Panda Express.</p>
 </div>
-<br/>
-<button ion-button icon-only (click)="chat(activity)"><ion-icon name="chatbubbles"></ion-icon></button>
-<hr>
-<div *ngIf="activity.creator.id == auth_user.id"> 
-  <div *ngFor="let user of interested_users">
-    <div id="{{user.id}}">
-      <img (click)="viewUser(user)" src="{{user.picture}}" height="50px" width="50px" style="float:left" /> <p (click)="viewUser(user)">{{user.name}}</p> <button ion-button icon-only (click)="accept(user)"><ion-icon name="checkmark"></ion-icon></button> <button ion-button icon-only (click)="reject(user)"><ion-icon name="close"></ion-icon></button>
-    </div>    
+
+<div style="background-color:#f5f5f5;" padding=3%>
+  <h6 style="font-size:12px;">GOING ({{activity.going.length}})</h6>
+  <ion-row>
+    <ion-col col-3 *ngFor="let user of going_users_visible">
+     <img (click)="viewUser(user)" src="{{user.picture}}" class="round-image" />
+    </ion-col>
+    <ion-col col-3 *ngIf="more_going === true">
+      <div class="round-div" color="main" align="center"><span class="contentInCircle">+{{left_going}}</span></div>
+    </ion-col>
+  </ion-row>
+</div>
+
+<div class="content">
+  <div class="row"  margin-top=auto margin-bottom=auto>
+    <div class="col col-6"  align="center">
+      <button ion-button color="main" style="width:98%">Requests ({{interested_users.length}})</button>
+    </div>
+    <div class="col col-6" align="center">
+      <button ion-button color="main" style="width:98%" outline (click)="editActivity()">Edit</button>
+    </div>
   </div>
+
+  <!-- <p>Users going:</p>
+  <div *ngFor="let user of going_users">
+    <div>
+      <img (click)="viewUser(user)" src="{{user.picture}}" height="50px" width="50px" style="float:left" /> <p (click)="viewUser(user)">{{user.name}}</p>
+    <br/>
+    <br/>
+    </div>
+  </div>
+  <br/>
+
+  <hr>
+  <div *ngIf="activity.creator.id == auth_user.id"> 
+    <div *ngFor="let user of interested_users">
+      <div id="{{user.id}}">
+        <img (click)="viewUser(user)" src="{{user.picture}}" height="50px" width="50px" style="float:left" /> <p (click)="viewUser(user)">{{user.name}}</p> <button ion-button icon-only (click)="accept(user)"><ion-icon name="checkmark"></ion-icon></button> <button ion-button icon-only (click)="reject(user)"><ion-icon name="close"></ion-icon></button>
+      </div>    
+    </div>
+  </div>
+  <div *ngIf="my_activity == true"> 
+        <ion-buttons end>
+          <button ion-button icon-only (click)="editActivity()"><ion-icon name="pen"></ion-icon></button>
+        </ion-buttons>
+      </div> -->
 </div>
 </ion-content>

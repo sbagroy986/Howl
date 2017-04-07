@@ -3,6 +3,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 // import { AboutPage } from '../pages/about/about';
 // import { ContactPage } from '../pages/contact/contact';
+import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 
@@ -22,6 +23,8 @@ import { ActivityTitlePage } from '../pages/activity-title/activity-title';
 import { ActivityWhatPage } from '../pages/activity-what/activity-what';
 import { ActivityWhenPage } from '../pages/activity-when/activity-when';
 import { ActivityResultsPage } from '../pages/activity-results/activity-results';
+import { ActivityWherePage } from '../pages/activity-where/activity-where';
+import { ActivityDetailsPage } from '../pages/activity-details/activity-details';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -31,6 +34,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MyApp,
     // AboutPage,
     // ContactPage,
+    LoginPage,
     HomePage,
     TabsPage,
     FilterPage,
@@ -46,7 +50,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ActivityTitlePage,
     ActivityWhatPage,
     ActivityWhenPage,
-    ActivityResultsPage  
+    ActivityResultsPage,
+    ActivityWherePage,
+    ActivityDetailsPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -56,6 +62,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MyApp,
     // AboutPage,
     // ContactPage,
+    LoginPage, 
     HomePage,
     TabsPage,
     FilterPage,
@@ -71,7 +78,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ActivityTitlePage,
     ActivityWhatPage,
     ActivityWhenPage,
-    ActivityResultsPage    
+    ActivityResultsPage,
+    ActivityWherePage,
+    ActivityDetailsPage
   ],
   providers: [
     StatusBar,
