@@ -16,7 +16,7 @@
       <div *ngIf="msg.user.me === false"> 
         <ion-row>
             <ion-col col-3>
-              <img src="{{msg.user.picture}}" class="round-image" style="margin: auto" /> 
+              <img src="{{msg.user.picture}}" class="round-image round-image{{msg.user.me}}" style="margin: auto" /> 
             </ion-col>
             <ion-col col-8>
               <div class="messageBody messageBody{{msg.user.me}}">
@@ -33,12 +33,12 @@
             <ion-col col-1>
             </ion-col>
             <ion-col col-8>
-              <div class="messageBody messageBody{{msg.user.me}}">
+              <div class="messageBody messageBody{{msg.user.me}} ">
                 {{msg.text}}
               </div>
             </ion-col>
             <ion-col col-3 style="margin:auto">
-              <img src="{{msg.user.picture}}" class="round-image" style="margin: auto"/> 
+              <img src="{{msg.user.picture}}" class="round-image round-image{{msg.user.me}}" style="margin: auto"/> 
             </ion-col>
         </ion-row>
 
