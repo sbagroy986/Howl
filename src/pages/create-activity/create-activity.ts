@@ -22,7 +22,7 @@ export class CreateActivityPage {
 
   setInterests(){
     //API call to get interests
-    this.interests=[{name: 'Food', picture: 'https://static.pexels.com/photos/2232/vegetables-italian-pizza-restaurant.jpg'},{name: 'Sports', picture: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Youth-soccer-indiana.jpg/1200px-Youth-soccer-indiana.jpg'}]
+    this.interests=[ {name: 'Food', description: 'Restaurants, Cafes, Bars etc.' },{name: 'Sports', description: 'Cricket, Football, Basketball etc.' }, {name: 'Comics', description: 'Discussion groups, Comic Con, Cosplay' } ,{name: 'Photography', description: 'Shoots, Exhibitions, Photo Walks etc.' } ]
   }
 
   next(interest){
