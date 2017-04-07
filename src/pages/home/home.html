@@ -1,37 +1,52 @@
 <ion-header>
   <ion-navbar color="white">
     <ion-title>
-      Howl!
+      Howl
     </ion-title>
     <ion-buttons end>
-      <button ion-button icon-only (click)="openFilter(filters)"><ion-icon name="funnel"></ion-icon></button>
+      <button ion-button icon-only color="main" (click)="openFilter(filters)"><ion-icon name="funnel"></ion-icon></button>
+    </ion-buttons>
+    <ion-buttons start>
+      <button ion-button icon-only color="main"> <ion-icon name="search"></ion-icon></button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <ion-item *ngFor="let activity of activities"> 
-    <div (click)="viewUser(activity.user)" style="float:left">
-        <img src="{{activity.user.picture}}">
-    </div>
-    <div style="margin-left:100px">
-      <div (click)="viewUser(activity.user)">
-          <h3>{{activity.user.name}}</h3>
+    <ion-card *ngFor="let activity of activities">
+        <div class="row">
+          <div class="col col-80">
+            <ion-item>
+              <ion-avatar item-left>
+                <img src="{{activity.user.picture}}" style="border: 50px;">
+              </ion-avatar>
+              <h2>{{activity.user.name}}</h2>
+              <p>{{activity.user.mutual_friends}} Mutual Friends</p>
+            </ion-item>
+        </div>
+        <div class="col">
+          <ion-item item-right>
+            <h4 color="main"><strong>2 Apr '17</strong></h4>
+          </ion-item>
+        </div>
       </div>
-      <br/>
-      <div (click)="viewActivity(activity)">
-        {{activity.name}}
-      </div>      
-      <div (click)="viewActivity(activity)">
+
+      <ion-card-content>
+        <h3><strong>{{activity.name}}</strong></h3>
         <p>{{activity.description}}</p>
+        <ion-badge color="main" item-left>Sports</ion-badge>
+        <ion-badge color="main" item-left>Tennis </ion-badge><br>
+        <span>xxx </span><span class="light">Going</span>
+      </ion-card-content>
+
+      <div class="row">
+        <div class="col col-6"  align="center">
+          <button ion-button color="main" style="width:98%">Interested</button>
+        </div>
+        <div class="col col-6" align="center">
+          <button ion-button color="main" style="width:98%" outline>Share</button>
+        </div>
       </div>
-      <br/>
-      <br/>
-      <button (click)="interested(activity.id)" id="{{activity.id}}" style="background:grey">
-      Interested?
-      </button>
-    </div>
-    <br/>
-    <br/>
-  </ion-item>
+
+    </ion-card>
 </ion-content>

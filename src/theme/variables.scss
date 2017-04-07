@@ -47,6 +47,9 @@ $colors: (
 // --------------------------------------------------
 // iOS only Sass variables can go here
 
+//Bakground of the app
+$background-ios-color: 										color($colors, background);
+
 // Use the default background for the tabbar since it inherits from toolbar
 $tabs-ios-background:                     color($colors, black);
 
@@ -65,6 +68,9 @@ $tabs-ios-tab-min-height:									60px;
 // --------------------------------------------------
 // Material Design only Sass variables can go here
 
+//Bakground of the app
+$background-md-color: 										color($colors, background);
+
 // Use the default background for the tabbar since it inherits from toolbar
 $tabs-md-background:                     color($colors, black);
 
@@ -79,6 +85,18 @@ $tabs-md-tab-color-active:                color($colors, main);
 // --------------------------------------------------
 // Windows only Sass variables can go here
 
+//Bakground of the app
+$background-wp-color: 										color($colors, background);
+
+// Use the default background for the tabbar since it inherits from toolbar
+$tabs-wp-background:                     color($colors, black);
+
+// Inactive Tab Settings
+$tabs-wp-tab-text-color:									color($colors, white);
+$tabs-wp-tab-icon-color:									color($colors, white);
+
+// Change the color of the tabs text
+$tabs-wp-tab-color-active:                color($colors, main);
 
 
 
