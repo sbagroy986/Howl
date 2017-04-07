@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { ActivityWherePage } from '../activity-where/activity-where';
 
 /*
   Generated class for the ActivityTime page.
@@ -12,11 +13,22 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'activity-time.html'
 })
 export class ActivityTimePage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ActivityTimePage');
+  public interest:any;
+  public date:any;
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  	this.interest=this.navParams.get('interest');
+  	this.date=this.navParams.get('date');
   }
 
+  close(){
+  	this.navCtrl.pop();
+  }
+
+  next(time){
+  	this.navCtrl.push(ActivityWherePage, {
+  		interest:this.interest,
+  		date:this.date,
+  		time:time
+  	})
+  }  
 }
