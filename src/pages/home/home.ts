@@ -51,22 +51,22 @@ export class HomePage {
     if (button.innerText === "Interested"){
       //add code for removing interests in call(activity_if,this.user)
       button.style.background='grey';
-      button.innerText="Interested?";          
+      button.innerText="Interested?";
     }
     else{
       button.style.background='green';
-      button.innerText="Interested";    
+      button.innerText="Interested";
     }
   }
 
   fetchAllActivities(){
-  	this.user= {name: 'Sam Cone',picture: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQRvcAa7nl4uoVvuBEgV8wYEI1AIai17PXtUbZvyLU3fqAKKT6GpUeWgMM', mutual_friends:40}
+  	this.user= {name: 'Sam Cone',picture: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQRvcAa7nl4uoVvuBEgV8wYEI1AIai17PXtUbZvyLU3fqAKKT6GpUeWgMM', mutual_friends:10}
   	this.activity= {creator: {name: "Chandu", id: 1}, id: 1, name: "Looking to play Tennis!", description: "His palms are sweaty, knees weak, arms are heavy. There's vomit on his sweater already, mom's spaghetti", user: this.user, picture: "https://health.gov/images/pag_07.jpg",going:[{name: "Person1", picture:"https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQRvcAa7nl4uoVvuBEgV8wYEI1AIai17PXtUbZvyLU3fqAKKT6GpUeWgMM"}, {name: "Person2", picture: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQRvcAa7nl4uoVvuBEgV8wYEI1AIai17PXtUbZvyLU3fqAKKT6GpUeWgMM"}]}
-  	this.activities.push(this.activity);  
+  	this.activities.push(this.activity);
 
-  	this.user= {name: 'Joe Cone',picture: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQRvcAa7nl4uoVvuBEgV8wYEI1AIai17PXtUbZvyLU3fqAKKT6GpUeWgMM', mutual_friends:40}
+  	this.user= {name: 'Joe Cone',picture: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQRvcAa7nl4uoVvuBEgV8wYEI1AIai17PXtUbZvyLU3fqAKKT6GpUeWgMM', mutual_friends:15}
   	this.activity= {creator: {name: "Chandu", id: 1}, id: 2, name: "Looking to play Lacrosse!", description: "Generic Eminem song lyrics here", user: this.user, picture: "https://health.gov/images/pag_07.jpg",going:[{name: "Person1", picture:"https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQRvcAa7nl4uoVvuBEgV8wYEI1AIai17PXtUbZvyLU3fqAKKT6GpUeWgMM"}, {name: "Person2", picture: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQRvcAa7nl4uoVvuBEgV8wYEI1AIai17PXtUbZvyLU3fqAKKT6GpUeWgMM"}]}
-  	this.activities.push(this.activity);  
+  	this.activities.push(this.activity);
   }
 
   openFilter(filters){
@@ -75,7 +75,7 @@ export class HomePage {
     addModal.onDidDismiss((filters_selected) => {
           if(filters_selected){
           	this.filterData(this.activities,filters_selected);
-          } 
+          }
     });
     addModal.present();
   }
