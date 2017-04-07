@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { ActivityTitlePage } from '../activity-title/activity-title'
+import { ActivityPage } from '../activity/activity'
 
 /*
   Generated class for the ActivityWhat page.
@@ -17,6 +18,7 @@ export class ActivityWhatPage {
   public activities=[];
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   	this.what=this.navParams.get('what');
+    console.log(this.what);
   	this.findActivities();
   }
 
@@ -41,4 +43,9 @@ export class ActivityWhatPage {
 		});
 	}
 
+  viewActivity(activity){
+    this.navCtrl.push(ActivityPage, {
+      activity: activity
+    });
+  }
 }

@@ -13,7 +13,7 @@
 <h3 style="margin-left:10px">Look at the below yo </h3>
 <div *ngFor="let activity of activities"> 
   <hr>
-  <div (click)="openActivity(activity)">
+  <div (click)="viewActivity(activity)">
   	<img src="{{activity.picture}}" style="float:left" height="80px" width="120px"/>
   	<p style="margin-left:150px;">{{activity.name}}</p>
   	<br/>
