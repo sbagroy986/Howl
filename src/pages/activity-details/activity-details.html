@@ -1,0 +1,12 @@
+<ion-content>
+	<ion-buttons start>
+	  <button ion-button icon-only (click)="close()"><ion-icon name="arrow-round-back"></ion-icon></button>
+	</ion-buttons>
+	<br/>
+	<br/>
+	<h2>Description?</h2>
+	<br/>
+	<br/>
+	<input type="text" [(ngModel)]="description" id="desc_input"/>
+	<button ion-button icon-only (click)="finish()" id="finish_button"><ion-icon name="done-all"></ion-icon></button>
+</ion-content>

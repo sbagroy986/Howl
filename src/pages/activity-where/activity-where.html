@@ -4,9 +4,9 @@
 	</ion-buttons>
 	<br/>
 	<br/>
-	<h2>Title?</h2>
+	<h2>Where?</h2>
 	<br/>
 	<br/>
-	<input type="text" [(ngModel)]="title" id="title_input"/>
-	<button ion-button icon-only (click)="next()" id="next_button"><ion-icon name="arrow-round-forward"></ion-icon></button>
+	<div (click)="next('Flexible')">Flexible</div>
+	<div (click)="next('Map')">MAP</div>
 </ion-content>

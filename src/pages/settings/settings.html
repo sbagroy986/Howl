@@ -10,10 +10,57 @@
 </ion-header>
 
 <ion-content>
+<div style="margin-left: 12px;">
+<h5>PROFILE</h5>
+</div>
 <button ion-item>
-Logout
+Name
+<span style="float:right; opacity: .5"> {{user.name}} </span>
 </button>
 <button ion-item>
-Delete Account
+Age
+<span style="float:right; opacity: .5"> {{user.age}} </span>
 </button>
+<button ion-item>
+Occupation
+<span style="float:right; opacity: .5"> {{user.occupation}} </span>
+</button>
+<button ion-item>
+Interests
+<span style="float:right; opacity: .5"> {{user.interests}} </span>
+</button>
+<button ion-item>
+About
+</button>
+<div style="margin-left: 12px;">
+<h5>ACCOUNT</h5>
+</div>
+<button ion-item>
+Privacy Settings
+</button>
+<button ion-item>
+Blocked Users
+</button>
+<div style="margin-left: 12px;">
+<h5>MORE INFO</h5>
+</div>
+<button ion-item>
+Support
+</button>
+<button ion-item>
+Privacy Policy
+</button>
+<button ion-item>
+Terms of Services
+</button>
+<button ion-item>
+Licenses
+</button>
+<br>
+<div align="center">
+<button ion-button style="width:4cm" color="main" outline>Delete Account</button>
+</div>
+<div align="center">
+<button ion-button style="width:4cm" color="main">Log Out</button>
+</div>
 </ion-content>

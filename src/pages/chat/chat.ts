@@ -25,6 +25,35 @@ export class ChatPage {
 
   fetchMessages(activity){
   	//fetch messages from DB
-  	this.messages=[{user: {name: "User1", id: 5, picture: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQRvcAa7nl4uoVvuBEgV8wYEI1AIai17PXtUbZvyLU3fqAKKT6GpUeWgMM"}, text: "Hello world"},{user: {name: "User2", id: 6, picture: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQRvcAa7nl4uoVvuBEgV8wYEI1AIai17PXtUbZvyLU3fqAKKT6GpUeWgMM"}, text: "Chup reh"}]
+  	this.messages=
+    [
+      {user: 
+        {
+          name: "User3", id: 5,
+          me: false, 
+          picture: "../assets/img/img (11).jpg"
+        }, 
+          text: "Hi, I was planning to go to this new place called Panda Express."
+      },
+      {
+        user: 
+        {
+          name: "User1", id: 6, 
+          me: true, 
+          picture: "../assets/img/img (11).png"
+        }, 
+          text: "Yeah sure! What time do you want to go?"
+      },
+      {
+        user: 
+          {
+            name: "User2", id: 6, 
+          me: false, 
+            picture: "../assets/img/img (11).jpg"
+          }, 
+          text: "Let's go around 2PM. We can meet at the metro station."
+      }
+
+    ]
   }
 }

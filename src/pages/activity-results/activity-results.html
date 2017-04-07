@@ -1,18 +1,19 @@
-<!--
-  Generated template for the ActivityResults page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>activity-results</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content padding>
-
+<ion-content>
+	<ion-buttons start>
+	  <button ion-button icon-only (click)="close()"><ion-icon name="arrow-round-back"></ion-icon></button>
+	</ion-buttons>
+	<br/>
+	<br/>
+	<div (click)="createActivity('Map')">+ New Activity</div>
+	<br/>
+	<br/>
+	<div *ngIf="activities.length != 0">Similar activities:</div>
+    <div *ngFor="let activity of activities">
+    	<div (click)="viewActivity(activity)">
+	    	<img src="{{activity.picture}}"/>
+	    	<p>{{activity.name}}</p>
+    	</div>
+    </div>
+	<br/>
+	<br/>
 </ion-content>

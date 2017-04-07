@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
-import { ActivityWhatPage } from '../activity-what/activity-what';
+import { NavController, NavParams, ViewController } from 'ionic-angular';
+import { ActivityWhenPage } from '../activity-when/activity-when';
 
 /*
   Generated class for the CreateActivity page.
@@ -14,12 +14,24 @@ import { ActivityWhatPage } from '../activity-what/activity-what';
 })
 export class CreateActivityPage {
   public what:any;
+  public interests=[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, public view: ViewController) {
+    this.setInterests();
+  }
 
-  next(){
-  	this.navCtrl.push(ActivityWhatPage,{
-  		what:this.what
+  setInterests(){
+    //API call to get interests
+    this.interests=[{name: 'Food', picture: 'https://static.pexels.com/photos/2232/vegetables-italian-pizza-restaurant.jpg'},{name: 'Sports', picture: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Youth-soccer-indiana.jpg/1200px-Youth-soccer-indiana.jpg'}]
+  }
+
+  next(interest){
+  	this.navCtrl.push(ActivityWhenPage,{
+  		interest:interest
   	});
+  }
+
+  close(){
+    this.view.dismiss()
   }
 }

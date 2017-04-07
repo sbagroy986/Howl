@@ -48,4 +48,13 @@ export class ActivityWhatPage {
       activity: activity
     });
   }
+
+  createActivity(details){
+    //API call to database to create Activity(this.what);
+  }
+
+  newActivitiy(){
+    this.createActivity(this.what);
+  }
+
 }

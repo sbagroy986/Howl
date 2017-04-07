@@ -11,6 +11,8 @@
 
 <ion-content>
 <h3 style="margin-left:10px">Look at the below yo </h3>
+<button (click)="newActivity()">Create New Activity</button>
+<br/>
 <div *ngFor="let activity of activities"> 
   <hr>
   <div (click)="viewActivity(activity)">
