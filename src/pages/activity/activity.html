@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar color="white">
+    <div *ngIf="my_profile == false"> 
+      <ion-buttons start>
+        <button ion-button icon-only (click)="close()"><ion-icon name="back"></ion-icon></button>
+      </ion-buttons>
+    </div>
+    <ion-title>
+    <div> {{activity.name}}</div>
+    </ion-title>
+    <div *ngIf="my_activity == true"> 
+      <ion-buttons end>
+        <button ion-button icon-only (click)="editActivity()"><ion-icon name="pen"></ion-icon></button>
+      </ion-buttons>
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+<br/>
+<hr>
+<br/>
+<img src="{{activity.picture}}" style="float:left;"/>
+<h3>{{activity.name}}</h3>
+<br/>
+<br/>
+<h6>{{activity.description}}</h6>
+<br/>
+<p>Users going:</p>
+<div *ngFor="let user of going_users">
+  <div>
+    <img (click)="viewUser(user)" src="{{user.picture}}" height="50px" width="50px" style="float:left" /> <p (click)="viewUser(user)">{{user.name}}</p>
+  <br/>
+  <br/>
+  </div>
+</div>
+<br/>
+<button ion-button icon-only (click)="chat(activity)"><ion-icon name="chatbubbles"></ion-icon></button>
+<hr>
+<div *ngIf="activity.creator.id == auth_user.id"> 
+  <div *ngFor="let user of interested_users">
+    <div id="{{user.id}}">
+      <img (click)="viewUser(user)" src="{{user.picture}}" height="50px" width="50px" style="float:left" /> <p (click)="viewUser(user)">{{user.name}}</p> <button ion-button icon-only (click)="accept(user)"><ion-icon name="checkmark"></ion-icon></button> <button ion-button icon-only (click)="reject(user)"><ion-icon name="close"></ion-icon></button>
+    </div>    
+  </div>
+</div>
+</ion-content>

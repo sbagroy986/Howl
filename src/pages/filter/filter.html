@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar color="white">
+  	<ion-buttons start>
+        <button ion-button icon-only (click)="close()"><ion-icon name="close"></ion-icon></button>
+    </ion-buttons>
+    <ion-title>
+      Filter Activities
+    </ion-title>
+  	<ion-buttons end>
+        <button ion-button icon-only (click)="apply()"><ion-icon name="checkmark"></ion-icon></button>
+    </ion-buttons>
+  	</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+	<h3>Filter by:</h3>
+  <ion-item>
+		<ion-label>Gender </ion-label>
+		<ion-checkbox [(ngModel)]="gender.checked" ng-checked="gender.checked"></ion-checkbox>
+	</ion-item>
+  <ion-item>
+    <ion-label>Interests </ion-label>
+    <ion-checkbox [(ngModel)]="interests.checked" ng-checked="interests.checked"></ion-checkbox>
+  </ion-item>
+  <ion-item>
+    <ion-label>Following: </ion-label>
+    <ion-checkbox [(ngModel)]="following.checked" ng-checked="following.checked"></ion-checkbox>
+  </ion-item>
+</ion-content>

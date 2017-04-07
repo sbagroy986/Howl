@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar color="white">
+    <ion-title>
+    <p> My Activities</p>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-item *ngFor="let activity of my_activities"> 
+  <hr>
+  <div (click)="openActivity(activity)">
+  	<img src="{{activity.picture}}" style="float:left" height="80px" width="120px"/>
+  	<p style="margin-left:150px;">{{activity.name}}</p>
+  	<br/>
+  	<p style="margin-left:150px;"><i>{{activity.creator.name}}</i></p>
+  </div>
+  <hr>
+  <br/>
+  </ion-item>
+</ion-content>

@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar color="white">
+    <ion-title>
+    <div>Group chat</div>
+    </ion-title>
+    <ion-buttons start>
+      <button ion-button icon-only (click)="close()"><ion-icon name="back"></ion-icon></button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+<br/>
+<br/>
+<div *ngFor="let msg of messages" style="margin-left:30px;">
+  <img src="{{msg.user.picture}}" height="50px" width="50px" style="float:left" /> {{msg.text}}
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+</div>
+</ion-content>
