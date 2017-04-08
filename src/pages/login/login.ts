@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Facebook, NativeStorage } from 'ionic-native';
-import { TabsPage } from '../pages/tabs/tabs';
+import { TabsPage } from '../tabs/tabs';
 
 /*
   Generated class for the Login page.
@@ -21,7 +21,7 @@ export class LoginPage {
 
   doFbLogin(){
     let permissions = new Array();
-    let nav = this.navCtrl;
+    // let nav = this.navCtrl;
     //the permissions your facebook app needs from the user
     permissions = ["public_profile"];
 
@@ -43,7 +43,7 @@ export class LoginPage {
           picture: user.picture
         })
         .then(function(){
-          nav.push(TabsPage);
+          this.navCtrl.setRoot(TabsPage);
         }, function (error) {
           console.log(error);
         })

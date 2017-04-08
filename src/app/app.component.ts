@@ -10,7 +10,8 @@ import { LoginPage } from '../pages/login/login';
 
 
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: 'app.html',
+   providers: [NavController]
 })
 export class MyApp {
   rootPage:any = LoginPage;
@@ -23,7 +24,7 @@ export class MyApp {
       NativeStorage.getItem('user').then(function(data) {
         // user is previously logged and we have his data
         // we will let him access the app
-        env.navCtrl.push(TabsPage);
+        env.navCtrl.setRoot(TabsPage);
         splashScreen.hide();
 
       }, function (error) {

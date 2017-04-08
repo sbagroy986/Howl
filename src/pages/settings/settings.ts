@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { ChooseInterestPage } from '../choose-interest/choose-interest';
 import { Facebook, NativeStorage } from 'ionic-native';
-import { LoginPage } from '../pages/login/login';
+import { LoginPage } from '../login/login';
 /*
   Generated class for the Settings page.
 
@@ -63,12 +63,12 @@ export class SettingsPage {
   }
 
   doFbLogout(){
-    var nav = this.navCtrl;
+    // var nav = this.navCtrl;
     Facebook.logout()
     .then(function(response) {
       //user logged out so we will remove him from the NativeStorage
       NativeStorage.remove('user');
-      nav.push(LoginPage);
+      this.navCtrl.push(LoginPage);
     }, function(error){
       console.log(error);
     });
