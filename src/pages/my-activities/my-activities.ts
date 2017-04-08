@@ -24,6 +24,7 @@ export class MyActivitiesPage {
   	//query server/DB to get active activities(user);
   	this.my_activities=[
       {
+        id:1,
         name: "Lunch at Epicuria", 
         picture: "./assets/img/img (6).jpg", 
         creator: {name: "Ramit Shah", id: 1},
@@ -37,6 +38,7 @@ export class MyActivitiesPage {
         ]
       },
       {
+        id:2,
         name: "Party at HKV!", 
         picture: "./assets/img/img (13).jpg", 
         creator: {name: "Rhea Chawla", id: 2}, 

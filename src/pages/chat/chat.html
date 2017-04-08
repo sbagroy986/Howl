@@ -10,47 +10,40 @@
 </ion-header>
 
 <ion-content>
-  <div class="content">
-    <ion-grid>
-      <div *ngFor="let msg of messages">
-      <div *ngIf="msg.user.me === false"> 
-        <ion-row>
-            <ion-col col-3>
-              <img src="{{msg.user.picture}}" class="round-image round-image{{msg.user.me}}" style="margin: auto" /> 
-            </ion-col>
-            <ion-col col-8>
-              <div class="messageBody messageBody{{msg.user.me}}">
-                {{msg.text}}
-              </div>
-            </ion-col>
-            <ion-col col-1>
-            </ion-col>
-        </ion-row>
-
-      </div>        
-      <div *ngIf="msg.user.me === true"> 
-        <ion-row>
-            <ion-col col-1>
-            </ion-col>
-            <ion-col col-8>
-              <div class="messageBody messageBody{{msg.user.me}} ">
-                {{msg.text}}
-              </div>
-            </ion-col>
-            <ion-col col-3 style="margin:auto">
-              <img src="{{msg.user.picture}}" class="round-image round-image{{msg.user.me}}" style="margin: auto"/> 
-            </ion-col>
-        </ion-row>
-
-        </div>        
-
-      </div>        
-    </ion-grid>        
-  </div>
-  <div class="bottom">
-    <ion-item >
-      <ion-label><ion-icon name="ios-attach-outline"></ion-icon></ion-label>
-      <ion-input color="primary" style="width: 80%" placeholder="Message"></ion-input>
-    </ion-item>
-  </div>
+  <ion-list>
+    <div *ngFor="let data of messages">
+      <ion-item *ngIf="name === data.user.name" style="border-right: solid 5px red;">
+        <p class="chat-text" item-left>
+          <strong>{{data.user.name}}: </strong>
+          {{data.message}}
+        </p>
+        <p class="chat-time" item-right>
+          {{data.date | date:'dd/MM/yyyy'}}
+        </p>
+      </ion-item>
+      <ion-item no-line *ngIf="name !== data.user.name" style="border-right: solid 5px green;">
+        <p class="chat-text" item-left>
+          <strong>{{data.user.name}}: </strong>
+          {{data.message}}
+        </p>
+        <p class="chat-time" item-right>
+          {{data.date | date:'dd/MM/yyyy'}}
+        </p>
+      </ion-item>
+    </div>
+  </ion-list>
 </ion-content>
+<ion-footer>
+  <form #f="ngForm">
+    <ion-grid>
+      <ion-row>
+        <ion-col width-80>
+          <ion-input [(ngModel)]="chat" name="chatText" required placeholder="type here..."></ion-input>
+        </ion-col>
+        <ion-col width-20 center>
+          <button (click)="chatSend(f.value, f.valid)" ion-button color="light" full [disabled]="f.valid === false">send</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-footer>
