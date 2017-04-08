@@ -1,29 +1,63 @@
 <ion-header>
   <ion-navbar color="white">
-  	<ion-buttons start>
+    <ion-buttons start>
         <button ion-button icon-only (click)="close()"><ion-icon name="close"></ion-icon></button>
     </ion-buttons>
     <ion-title>
       Filter Activities
     </ion-title>
-  	<ion-buttons end>
+    <ion-buttons end>
         <button ion-button icon-only (click)="apply()"><ion-icon name="checkmark"></ion-icon></button>
     </ion-buttons>
-  	</ion-navbar>
+    </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-	<h3>Filter by:</h3>
+<ion-content >
+  <div style="margin-left: 10px">
+  <h6>Gender</h6>
+  </div>
   <ion-item>
-		<ion-label>Gender </ion-label>
-		<ion-checkbox [(ngModel)]="gender.checked" ng-checked="gender.checked"></ion-checkbox>
-	</ion-item>
-  <ion-item>
-    <ion-label>Interests </ion-label>
-    <ion-checkbox [(ngModel)]="interests.checked" ng-checked="interests.checked"></ion-checkbox>
+    <ion-label>Male </ion-label>
+    <ion-checkbox [(ngModel)]="male.checked" ng-checked="male.checked"></ion-checkbox>
   </ion-item>
   <ion-item>
-    <ion-label>Following: </ion-label>
+    <ion-label>Female </ion-label>
+    <ion-checkbox [(ngModel)]="female.checked" ng-checked="female.checked"></ion-checkbox>
+  </ion-item>
+    <div style="margin-left: 10px">
+  <h6>Interests</h6>
+  </div>
+  <ion-item>
+  <ion-label>Food</ion-label>
+  <ion-checkbox color="dark" checked="true"></ion-checkbox>
+</ion-item>
+<ion-item>
+  <ion-label>Photography</ion-label>
+  <ion-checkbox color="dark" checked="true"></ion-checkbox>
+</ion-item>
+<ion-item>
+  <ion-label>Comics</ion-label>
+  <ion-checkbox color="dark" checked="true"></ion-checkbox>
+</ion-item>
+<ion-item>
+  <ion-label>Sports</ion-label>
+  <ion-checkbox color="dark" checked="true"></ion-checkbox>
+</ion-item>
+<!--   <ion-item>
+    <ion-label>Interests </ion-label>
+    <ion-checkbox [(ngModel)]="interests.checked" ng-checked="interests.checked"></ion-checkbox>
+  </ion-item> -->
+  <div style="margin-left: 10px">
+  <h6>Distance (Km)</h6>
+  </div>
+  <ion-item>
+  <ion-range [(ngModel)]="brightness">
+    <ion-icon range-left small name="km"></ion-icon>
+    <ion-icon range-right name="km"></ion-icon>
+  </ion-range>
+</ion-item>
+  <ion-item>
+    <ion-label>Only users following </ion-label>
     <ion-checkbox [(ngModel)]="following.checked" ng-checked="following.checked"></ion-checkbox>
   </ion-item>
 </ion-content>
