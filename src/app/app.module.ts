@@ -63,7 +63,7 @@ import { Geolocation } from '@ionic-native/geolocation';
     MyApp,
     // AboutPage,
     // ContactPage,
-    LoginPage, 
+    LoginPage,
     HomePage,
     TabsPage,
     FilterPage,
