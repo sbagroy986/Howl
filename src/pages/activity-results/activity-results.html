@@ -8,8 +8,10 @@
 	<br/>
 	<br/>
 	<div style="margin-left:25px;color:white">
-	   <div style="color:white;margin-left:30px" (click)="createActivity()"><ion-icon name="ios-add-circle-outline"></ion-icon> Create New Activity</div>
+	   <div style="color:white;margin-left:30px" (click)="createActivity()"> Create New Activity&#9;&#9;  <ion-icon name="ios-add-circle-outline"></ion-icon></div>
 		<br/>
+		<br/>
+		<p style="margin-left:30px;">Similar activities around you:</p>
 	   <ion-card (click)="openActivity(activity)" *ngFor="let activity of activities">
 	      <ion-card-content>
 	        <ion-row>
