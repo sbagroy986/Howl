@@ -1,7 +1,8 @@
 import { Component, ViewChild, NgZone } from '@angular/core';
 import * as io from 'socket.io-client';
+import 'rxjs/add/operator/map';
 import { NavController, Content, NavParams } from 'ionic-angular';
-
+import {Http} from '@angular/http';
 /*
   Generated class for the Chat page.
 
@@ -23,13 +24,12 @@ export class ChatPage {
   zone:any;
   name:any;
   public user={name: 'LolUser', id:2, picture:"http://www.studiobthebeach.com/wp-content/uploads/2011/06/joncone1.png"};  
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
   	this.activity=this.navParams.get('activity');
-    console.log(this.activity);
-    console.log(this.activity.id);
   	this.fetchMessages(this.activity);
     this.name="User1";
     this.socket = io.connect(this.socketHost);
+    this.http = http;
     this.zone = new NgZone({enableLongStackTrace: false});
     this.socket.on("chat message", (msg) =>{
       this.zone.run(() =>{
@@ -47,48 +47,16 @@ export class ChatPage {
   }
 
   fetchMessages(activity){
-  	//fetch messages from DB
-  	this.messages=
-    [
-      {user:
-        {
-          name: "User3", id: 5,
-          me: false,
-          picture: "./assets/img/img (11).jpg"
-        },
-          message: "Hi, I was planning to go to this new place called Panda Express.",
-          activity:{
-            id: 1
-          }
-      },
-      {
-        user:
-        {
-          name: "User1", id: 6,
-          me: true,
-          picture: "./assets/img/img (11).png"
-        },
-          message: "Yeah sure! What time do you want to go?",
-          activity:{
-            id: 2
-          }
-      },
-      {
-        user:
-          {
-            name: "User2", id: 6,
-          me: false,
-            picture: "./assets/img/img (11).jpg"
-          },
-          message: "Let's go around 2PM. We can meet at the metro station.",
-          activity:{
-            id: 3
-          }
+    var url = 'http://192.168.54.173:8000/howl/getChat?query=&activityID=' + encodeURI(this.activity.id);
+        var response = this.http.get(url).map(res => res.json());
+        console.log(response);
+    // http.get("http://192.168.54.173:8000/howl/getChat")
+    //     .subscribe(data => {
+    //       console.log(data)
+    //     }, error => {
+    //         console.log(JSON.stringify(error.json()));
+    //     });  
       }
-
-    ]
-  }
-
   chatSend(v){
     let data = {
       activity:this.activity.id,

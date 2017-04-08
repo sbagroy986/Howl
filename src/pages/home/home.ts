@@ -60,11 +60,11 @@ export class HomePage {
   }
 
   fetchAllActivities(){
-  	this.user= {name: 'Sam Cone',picture: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQRvcAa7nl4uoVvuBEgV8wYEI1AIai17PXtUbZvyLU3fqAKKT6GpUeWgMM', mutual_friends:10}
+  	this.user= {name: 'Ramit Shah',picture: 'https://www.newschool.edu/uploadedImages/Parsons/Profiles/jamer_hunt_profile.jpg?n=4468', mutual_friends:10}
   	this.activity= {creator: {name: "Chandu", id: 1}, id: 1, name: "Looking to play Tennis!", description: "His palms are sweaty, knees weak, arms are heavy. There's vomit on his sweater already, mom's spaghetti", user: this.user, picture: "https://health.gov/images/pag_07.jpg",going:[{name: "Person1", picture:"https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQRvcAa7nl4uoVvuBEgV8wYEI1AIai17PXtUbZvyLU3fqAKKT6GpUeWgMM"}, {name: "Person2", picture: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQRvcAa7nl4uoVvuBEgV8wYEI1AIai17PXtUbZvyLU3fqAKKT6GpUeWgMM"}]}
   	this.activities.push(this.activity);
 
-  	this.user= {name: 'Joe Cone',picture: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQRvcAa7nl4uoVvuBEgV8wYEI1AIai17PXtUbZvyLU3fqAKKT6GpUeWgMM', mutual_friends:15}
+  	this.user= {name: 'Ramit Shah',picture: 'https://www.newschool.edu/uploadedImages/Parsons/Profiles/jamer_hunt_profile.jpg?n=4468', mutual_friends:15}
   	this.activity= {creator: {name: "Chandu", id: 1}, id: 2, name: "Looking to play Lacrosse!", description: "Generic Eminem song lyrics here", user: this.user, picture: "https://health.gov/images/pag_07.jpg",going:[{name: "Person1", picture:"https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQRvcAa7nl4uoVvuBEgV8wYEI1AIai17PXtUbZvyLU3fqAKKT6GpUeWgMM"}, {name: "Person2", picture: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQRvcAa7nl4uoVvuBEgV8wYEI1AIai17PXtUbZvyLU3fqAKKT6GpUeWgMM"}]}
   	this.activities.push(this.activity);
   }

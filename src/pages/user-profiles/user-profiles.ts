@@ -23,14 +23,14 @@ export class UserProfilesPage {
   }
 
   fixUser(params) {
-    if(!params.get('user')){
+    // if(!params.get('user')){
       this.user=this.auth_user;
       this.my_profile=true;
       this.not_my_profile=false;
-    }
-    else{
-      this.user=params.get('user');
-    }
+    // }
+    // else{
+    //   this.user=params.get('user');
+    // }
   }
 
   openSettings(){
