@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { ChooseInterestPage } from '../choose-interest/choose-interest';
 import { Facebook, NativeStorage } from 'ionic-native';
-import { LoginPage } from '../pages/login/login';
+import { LoginPage } from '../login/login';
 /*
   Generated class for the Settings page.
 
