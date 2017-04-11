@@ -5,7 +5,6 @@ import { StatusBar, Splashscreen, NativeStorage } from 'ionic-native';
 import { LoginPage } from '../pages/login/login';
 import { TabsPage } from '../pages/tabs/tabs';
 
-declare let FB: any;
 @Component({
   template: `<ion-nav [root]="rootPage"></ion-nav>`
 })
@@ -15,13 +14,6 @@ export class MyApp {
   rootPage: any;
 
   constructor(platform: Platform) {
-    FB.init({
-    appId      : '306887826380765',
-    status     : true,
-    xfbml      : true,
-    version    : 'v2.8'
-    });
-
     platform.ready().then(() => {
 
       // Here we will check if the user is already logged in
