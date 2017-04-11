@@ -24,7 +24,6 @@ export class TabsPage {
   }
 
   createActivity(){
-    console.log("here");
     let addModal = this.modalCtrl.create(CreateActivityPage);
     addModal.present();    
   }

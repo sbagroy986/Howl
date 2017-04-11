@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import {Http,Headers,RequestOptions} from '@angular/http';
+import { App,NavController, NavParams } from 'ionic-angular';
+import { NativeStorage } from 'ionic-native';
+import { TabsPage } from '../tabs/tabs';
 
 /*
   Generated class for the ChooseInterest page.
@@ -14,34 +17,61 @@ import { NavController, NavParams } from 'ionic-angular';
 export class ChooseInterestPage {
   public user_interests = []
   public interests = []
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  public user:any;
+  constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams, public appCtrl: App) {
+    this.user=navParams.get('user');
+    console.log(this.user);
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ChooseInterestPage');
-    this.fetchInterests();
-  	this.getUserInterest();
-  }
-  fetchInterests(){
-    this.interests = 
-      [
-        {name:'Food',userInterest:0, imageUrl:"../assets/img/img (14).png"}, 
-        {name:'Photography',userInterest:0, imageUrl:"../assets/img/img (10).png"},
-        {name:'History',userInterest:0, imageUrl:"../assets/img/img (4).png"},
-        {name:'Books',userInterest:0, imageUrl:"../assets/img/img (8).png"},
-        {name:'Party',userInterest:0, imageUrl:"../assets/img/img (7).png"},
-        {name:'Comics',userInterest:0, imageUrl:"../assets/img/img (12).png"}
-      ]
-  }
-  getUserInterest(){
-  	this.user_interests = this.navParams.get('user_interests');
-    for(var i =0; i<this.interests.length; i++){
-      for(var j=0; j<this.user_interests.length; j++){
-        if(this.user_interests[j].toString()===this.interests[i].name.toString()){
-          this.interests[i].userInterest = 1;
-        }
-      }
+    console.log(this.user);
+    if (this.user.new_user) {
+      this.initInterests();
+    }
+    else
+    {
+      this.interests=this.user.interests;
     }
   }
 
+  initInterests(){
+    this.interests = 
+      [
+        {name:'Food',userInterest:false, imageUrl:"../assets/img/img (14).png"}, 
+        {name:'Photography',userInterest:false, imageUrl:"../assets/img/img (10).png"},
+        {name:'History',userInterest:false, imageUrl:"../assets/img/img (4).png"},
+        {name:'Books',userInterest:false, imageUrl:"../assets/img/img (8).png"},
+        {name:'Party',userInterest:false, imageUrl:"../assets/img/img (7).png"},
+        {name:'Comics',userInterest:false, imageUrl:"../assets/img/img (12).png"}
+      ]
+  }
+
+  saveInterests(){
+    let env=this;
+    for(let data of this.interests) {
+      data.userInterest=(<HTMLInputElement>document.getElementById(data.name)).checked;
+      console.log(data);
+    }
+    console.log(this.interests);
+
+    let headers: Headers = new Headers({'Content-Type': 'application/json'});
+    let options = new RequestOptions({ headers: headers });
+    let params= JSON.stringify({user:this.user,interests:this.interests});
+
+    this.http.post('http://192.168.1.6:5000/save_interests',
+        params, {
+            headers: headers
+        })
+      .map(res => res.json()).subscribe(data =>{
+        console.log(this.user);
+        if (this.user.new_user){
+          NativeStorage.setItem('auth_user',data).then(function(){
+          this.navCtrl.push(TabsPage);
+        });
+        }
+        else {
+           this.navCtrl.pop();
+          }
+    });    
+  }
 }

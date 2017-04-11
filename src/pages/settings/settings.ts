@@ -15,13 +15,17 @@ import { LoginPage } from '../login/login';
 })
 export class SettingsPage {
     user: any;
+    auth_user:any;
     userReady: boolean = false;
-    public auth_user= {name: 'Ramit Shah',picture: 'https://www.newschool.edu/uploadedImages/Parsons/Profiles/jamer_hunt_profile.jpg?n=4468', age:24,mutual_friends:40, followers:68, following:195 , interests: 'Food, Sports..', occupation: 'Analyst at..' , activity_count:42, about: 'Foodie and Movie Buff. I love playing soccer and tennis. Netflix and chill?', activities: [{name: 'Activity1', description: 'Misc',id: 1, creator: {id: 22}},{name: 'Activity2', description: 'Misc',id: 2,creator: {id: 23}}]}
 
     public my_profile=false;
-  public not_my_profile=true;
+    public not_my_profile=true;
+  
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.fixUser(this.navParams);
+    NativeStorage.getItem('auth_user').then(data => {
+      this.auth_user=data;
+    });
+
   }
 
   fixUser(params) {
@@ -41,9 +45,10 @@ export class SettingsPage {
   back(){
   	this.navCtrl.pop();
   }
+  
   interestPage(){
     this.navCtrl.push(ChooseInterestPage,{
-      user_interests: ["Food","Photography","Comics"]
+      user: this.auth_user
     });
   }
 
@@ -68,7 +73,8 @@ export class SettingsPage {
     .then(function(response) {
       //user logged out so we will remove him from the NativeStorage
       NativeStorage.remove('user');
-      nav.push(LoginPage);
+      window.location.reload();
+      // nav.setRoot(LoginPage);
     }, function(error){
       console.log(error);
     });

@@ -25,6 +25,7 @@ import { ActivityWhenPage } from '../pages/activity-when/activity-when';
 import { ActivityResultsPage } from '../pages/activity-results/activity-results';
 import { ActivityWherePage } from '../pages/activity-where/activity-where';
 import { ActivityDetailsPage } from '../pages/activity-details/activity-details';
+import { MiddlePage } from '../pages/middle/middle';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -53,7 +54,8 @@ import { Geolocation } from '@ionic-native/geolocation';
     ActivityWhenPage,
     ActivityResultsPage,
     ActivityWherePage,
-    ActivityDetailsPage
+    ActivityDetailsPage,
+    MiddlePage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -81,7 +83,8 @@ import { Geolocation } from '@ionic-native/geolocation';
     ActivityWhenPage,
     ActivityResultsPage,
     ActivityWherePage,
-    ActivityDetailsPage
+    ActivityDetailsPage,
+    MiddlePage
   ],
   providers: [
     StatusBar,
