@@ -14,9 +14,11 @@ import { TabsPage } from '../tabs/tabs';
   templateUrl: 'login.html'
 })
 export class LoginPage {
-  FB_APP_ID: number = 661959977307690;
+  FB_APP_ID: number = 306887826380765;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-  	Facebook.browserInit(this.FB_APP_ID, "v2.8");
+    console.log("here");
+  	console.log(Facebook.browserInit(this.FB_APP_ID, "v2.8"));
+    console.log("here");
   }
 
   doFbLogin(){
@@ -51,5 +53,9 @@ export class LoginPage {
     }, function(error){
       console.log(error);
     });
+  }
+
+  findUser(){
+
   }
 }
