@@ -19,7 +19,7 @@ export class ChooseInterestPage {
   public interests = []
   public user:any;
   constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams, public appCtrl: App) {
-    this.user=navParams.get('user');
+    this.user=navParams.get('auth_user');
     console.log(this.user);
   }
 
