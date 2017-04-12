@@ -37,12 +37,29 @@ export class ChooseInterestPage {
   initInterests(){
     this.interests = 
       [
-        {name:'Food',userInterest:false, imageUrl:"../assets/img/img (14).png"}, 
-        {name:'Photography',userInterest:false, imageUrl:"../assets/img/img (10).png"},
-        {name:'History',userInterest:false, imageUrl:"../assets/img/img (4).png"},
-        {name:'Books',userInterest:false, imageUrl:"../assets/img/img (8).png"},
-        {name:'Party',userInterest:false, imageUrl:"../assets/img/img (7).png"},
-        {name:'Comics',userInterest:false, imageUrl:"../assets/img/img (12).png"}
+        {name:'Food',userInterest:false, imageUrl:"./assets/img/Food.png"}, 
+        {name:'Photography',userInterest:false, imageUrl:"./assets/img/img (10).png"},
+        {name:'History',userInterest:false, imageUrl:"./assets/img/img (4).png"},
+        {name:'Books',userInterest:false, imageUrl:"./assets/img/img (8).png"},
+        {name:'Party',userInterest:false, imageUrl:"./assets/img/img (7).png"},
+        {name:'Comics',userInterest:false, imageUrl:"./assets/img/img (12).png"},
+        {name:'Sports',userInterest:false, imageUrl:"./assets/img/img (12).png"},
+        {name:'Fashion',userInterest:false, imageUrl:"./assets/img/img (12).png"},
+        {name:'Dance',userInterest:false, imageUrl:"./assets/img/img (12).png"},
+        {name:'Arts',userInterest:false, imageUrl:"./assets/img/img (12).png"},
+        {name:'LGBTQ',userInterest:false, imageUrl:"./assets/img/img (12).png"},
+        {name:'Movies',userInterest:false, imageUrl:"./assets/img/img (12).png"},
+        {name:'Career',userInterest:false, imageUrl:"./assets/img/img (12).png"},
+        {name:'Pets',userInterest:false, imageUrl:"./assets/img/img (12).png"},
+        {name:'Writing',userInterest:false, imageUrl:"./assets/img/img (12).png"},
+        {name:'Music',userInterest:false, imageUrl:"./assets/img/img (12).png"},
+        {name:'Technology',userInterest:false, imageUrl:"./assets/img/img (12).png"},
+        {name:'Adventure',userInterest:false, imageUrl:"./assets/img/img (12).png"},
+        {name:'Travel',userInterest:false, imageUrl:"./assets/img/img (12).png"},
+        {name:'Language',userInterest:false, imageUrl:"./assets/img/img (12).png"},
+        {name:'Health',userInterest:false, imageUrl:"./assets/img/img (12).png"},
+        {name:'Philosophy',userInterest:false, imageUrl:"./assets/img/img (12).png"},
+        {name:'Theatre',userInterest:false, imageUrl:"./assets/img/img (12).png"}
       ]
   }
 
