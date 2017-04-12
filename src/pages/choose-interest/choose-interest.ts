@@ -71,6 +71,7 @@ export class ChooseInterestPage {
         }
         else {
           NativeStorage.setItem('auth_user',data).then(function(){
+            console.log(data);
             env.navCtrl.pop();
         });
         }

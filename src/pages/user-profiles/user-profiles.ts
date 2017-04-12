@@ -24,6 +24,7 @@ export class UserProfilesPage {
   public activity_count:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.loaded=false;
     this.fixUser(this.navParams);
     console.log("done fixing");
   }
@@ -37,8 +38,10 @@ export class UserProfilesPage {
   }
 
   ionViewDidLoad() {
+    this.loaded=false;
     NativeStorage.getItem('auth_user').then(data=>{
       this.auth_user=data;
+      console.log(data);
       if (this.user == null || (this.user!=null && (this.auth_user['user_id']==this.user['user_id']))) this.user=this.auth_user;this.my_profile=true;
       this.loadInterests();
       this.loaded=true;
@@ -46,6 +49,7 @@ export class UserProfilesPage {
   }
 
   loadInterests(){
+    this.interests=[];
     for (let interest in this.user.interests){
       if(this.user.interests[interest]['userInterest'])
         this.interests.push(this.user.interests[interest]['name']);
@@ -73,4 +77,15 @@ export class UserProfilesPage {
   back(){
     this.navCtrl.pop();
   }
+
+  clearData(){
+    console.log("CLEAR");
+    this.loaded=false;
+    this.ionViewDidLoad();
+  }
+
+  ionViewWillEnter(){
+    this.clearData(); 
+  }
+
 }
