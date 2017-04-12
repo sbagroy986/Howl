@@ -1,3 +1,4 @@
+import { NativeStorage } from 'ionic-native';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { ActivityPage } from '../activity/activity';
@@ -46,8 +47,11 @@ export class ActivityResultsPage {
   }
 
   viewActivity(activity){
-    this.navCtrl.push(ActivityPage, {
-      activity: activity
+    NativeStorage.getItem('auth_user').then(data=>{
+      this.navCtrl.push(ActivityPage, {
+        activity: activity,
+        auth_user: data
+      });
     });
   }
 
@@ -59,11 +63,5 @@ export class ActivityResultsPage {
       location: this.loc,
       title:this.title       
      })
-  }
-
-  openActivity(activity){
-    this.navCtrl.push(ActivityPage, {
-      activity: activity
-    });
-  }    
+  }  
 }
