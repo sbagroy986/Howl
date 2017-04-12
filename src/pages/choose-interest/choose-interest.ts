@@ -38,8 +38,7 @@ export class ChooseInterestPage {
     this.interests = 
       [
         {name:'Food',userInterest:false}, 
-        {name:'Photography',userInterest:false},
-        {name:'History',userInterest:false},
+        {name:'Photos',userInterest:false},
         {name:'Books',userInterest:false},
         {name:'Party',userInterest:false},
         {name:'Comics',userInterest:false},
@@ -58,9 +57,8 @@ export class ChooseInterestPage {
         {name:'Travel',userInterest:false},
         {name:'Language',userInterest:false},
         {name:'Health',userInterest:false},
-        {name:'Philosophy',userInterest:false},
         {name:'Theatre',userInterest:false},
-        {name:'Gaming',userInterest:false}
+        {name:'Gaming',userInterest:false},
       ]
   }
 

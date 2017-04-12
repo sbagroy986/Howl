@@ -1,24 +1,38 @@
 
+<ion-header>
+  <ion-navbar color="white">
+    <ion-buttons start>
+        <button ion-button icon-only (click)="close()"><ion-icon name="close"></ion-icon></button>
+    </ion-buttons>
+    <ion-title>
+      Choose your activity type
+    </ion-title>
+    <ion-buttons end>
+        <button ion-button icon-only (click)="apply()"><ion-icon name="checkmark"></ion-icon></button>
+    </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
 <ion-content>
 <ion-buttons start>
-<div style="margin: 5px">
+<!-- <div style="margin: 5px">
   <button ion-button icon-only (click)="close()" style="background-color:#333333;"><ion-icon name="close" style="color:#b89981;background-color:#333333;"></ion-icon></button>
   <span style=" float: center">
   Choose your activity type
   </span>
-</div>
+</div> -->
 </ion-buttons>
   <ion-grid>
     <ion-row>
     	<ion-col col-6 *ngFor="let interest of interests">
         <div (click)=next(interest)>
-          <ion-card  style="width: 100%; margin-left: 0px">
-            <img style="height: 100px" src="./assets/img/{{interest.name}}.jpg"/>
+          <ion-card  style="width: 100%; margin-left: 0px; float: center">
+            <img style="max-height: 100px; max-width: 100%; width: auto; height: auto;" src="./assets/img/{{interest.name}}.jpg"/>
             <ion-card-content>
             <ion-card-title>
             <div class="card-title">{{interest.name}}</div>
             </ion-card-title>
-            <div style="font-size: 12px">
+            <div style="font-size: 12px; height: 30px">
             {{interest.description}}
             </div>
             </ion-card-content>
