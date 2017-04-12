@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { SettingsPage } from '../settings/settings';
 import { ActivityPage } from '../activity/activity';
+import { NativeStorage } from 'ionic-nativ/native-storage';
 
 /*
   Generated class for the UserProfiles page.
@@ -18,23 +19,20 @@ export class UserProfilesPage {
   public auth_user= {name: 'Ramit Shah',picture: 'https://www.newschool.edu/uploadedImages/Parsons/Profiles/jamer_hunt_profile.jpg?n=4468', age:24,mutual_friends:40, followers:68, following:195 , interests: 'Food, Sports, Photography, Books', occupation: 'Analyst at GenCorp Inc.' , activity_count:42, about: 'Foodie and Movie Buff. I love playing soccer and tennis. Netflix and chill?', activities: [{name: 'Activity1', description: 'Misc',id: 1, creator: {id: 22}},{name: 'Activity2', description: 'Misc',id: 2,creator: {id: 23}}]}
   public my_profile=false;
   public not_my_profile=true;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public nativeStorage: NativeStorage, public navCtrl: NavController, public navParams: NavParams) {
     this.fixUser(this.navParams);
   }
 
   fixUser(params) {
-    // if(!params.get('user')){
-      this.user=this.auth_user;
-      this.my_profile=true;
-      this.not_my_profile=false;
-    // }
-    // else{
-    //   this.user=params.get('user');
-    // }
+      this.nativeStorage.getItem('auth_user').then(data=>{
+      this.auth_user=data;
+      this.user=data;
+      console.log("here");
+    });
   }
 
   openSettings(){
-  	this.navCtrl.push(SettingsPage);
+  	this.navCtrl.push(SettingsPage,{auth_user: this.auth_user});
   }
 
   viewActivity(activity){

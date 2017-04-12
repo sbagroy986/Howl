@@ -58,7 +58,7 @@ export class ChooseInterestPage {
     let options = new RequestOptions({ headers: headers });
     let params= JSON.stringify({user:this.user,interests:this.interests});
 
-    this.http.post('http://192.168.1.6:5000/save_interests',
+    this.http.post('http://192.168.58.47:5000/save_interests',
         params, {
             headers: headers
         })
@@ -66,7 +66,7 @@ export class ChooseInterestPage {
         console.log(this.user);
         if (this.user.new_user){
           NativeStorage.setItem('auth_user',data).then(function(){
-          this.navCtrl.push(TabsPage);
+            env.navCtrl.setRoot(TabsPage);
         });
         }
         else {

@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { Component,ViewChild } from '@angular/core';
+import { NavController, NavParams, Nav } from 'ionic-angular';
 import {Http,Headers,RequestOptions} from '@angular/http';
 import { ChooseInterestPage } from '../choose-interest/choose-interest';
 import { TabsPage } from '../tabs/tabs';
@@ -17,6 +17,8 @@ import { NativeStorage } from 'ionic-native';
   templateUrl: 'middle.html'
 })
 export class MiddlePage {
+  @ViewChild(Nav) nav: Nav;
+
 	public user:any;
   constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams) {}
 
@@ -32,7 +34,7 @@ findUser(user){
 	let headers: Headers = new Headers({'Content-Type': 'application/json'});
 	let options = new RequestOptions({ headers: headers });
 	let params= JSON.stringify(user);
-	this.http.post('http://192.168.1.6:5000/user_login',
+	this.http.post('http://192.168.58.47:5000/user_login',
       params, {
           headers: headers
       })
@@ -43,8 +45,7 @@ findUser(user){
 	  	}
 	  	else{
 	  		NativeStorage.setItem('auth_user',data).then(function(){
-	  			console.log(data);
-	          this._app.getRootNav().setRoot(TabsPage);          
+	          env.navCtrl.setRoot(TabsPage);
 	  		});
 	  	}
 	  });

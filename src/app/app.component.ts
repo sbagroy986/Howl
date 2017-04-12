@@ -19,7 +19,7 @@ export class MyApp {
       // Here we will check if the user is already logged in
       // because we don't want to ask users to log in each time they open the app
       let env = this;
-      NativeStorage.getItem('userzz')
+      NativeStorage.getItem('auth_user')
       .then( function (data) {
         // user is previously logged and we have his data
         // we will let him access the app
