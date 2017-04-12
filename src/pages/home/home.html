@@ -16,25 +16,24 @@
     <ion-card *ngFor="let activity of activities">
         <div class="row">
           <div class="col col-10">
-            <ion-item (click)="viewUser(user)">
+            <ion-item (click)="viewUser(activity['user'])">
               <ion-avatar item-left>
-                <img src="{{activity.user.picture}}">
+                <img src="{{activity['creator']['picture']}}">
               </ion-avatar>
-              <h2>{{activity.user.name}}</h2>
-              <p>{{activity.user.mutual_friends}} Mutual Friends</p>
+              <h2>{{activity['creator']['name']}}</h2>
               </ion-item>
         </div>
         <div class="col" align="right" style="margin-right: 10px; margin-top: 12px;">
-            <h4 color="main"><strong>2 Apr '17</strong></h4>
+            <h4 color="main"><strong>{{myDate - activity['created_at']}}</strong></h4>
         </div>
       </div>
 
       <ion-card-content (click)="viewActivity(activity)">
-        <h3><strong>{{activity.name}}</strong></h3>
-        <p>{{activity.description}}</p>
+        <h3><strong>{{activity['title']}}</strong></h3>
+        <p>{{activity['details']}}</p>
         <ion-badge color="main" item-left>Sports</ion-badge>
         <ion-badge color="main" item-left>Tennis </ion-badge><br>
-        <span>10 </span><span class="light">Going</span>
+        <span>{{activity['going'].length}}</span><span class="light"> going</span>
       </ion-card-content>
 
       <div class="row">
@@ -45,6 +44,5 @@
           <button ion-button color="main" style="width:98%" outline>Share</button>
         </div>
       </div>
-
     </ion-card>
 </ion-content>

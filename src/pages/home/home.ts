@@ -14,6 +14,7 @@ export class HomePage {
   public auth_user:any;
   public activities=[];
   public filters={gender_male: false,gender_female: false,interests_only: true};
+  public myDate=new Date().toISOString()
   user: any;
   activity:any;
 
@@ -68,7 +69,7 @@ export class HomePage {
   clearData(){
     this.activities=[];
     NativeStorage.getItem('auth_user').then(data=>{
-      this.getFeed(this.auth_user);
+      this.getFeed(data);
     });    
   }
 
@@ -77,8 +78,7 @@ export class HomePage {
     this.clearData(); 
   }
 
-  getFeed(user){
-  let env=this;
+ getFeed(user){
   let headers: Headers = new Headers({'Content-Type': 'application/json'});
   let options = new RequestOptions({ headers: headers });
   let params= JSON.stringify(user);
@@ -88,6 +88,7 @@ export class HomePage {
       })
     .map(res => res.json()).subscribe(data =>{
       console.log(data);
+      this.activities=data['feed'];
     });
   }
 
