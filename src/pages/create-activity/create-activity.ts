@@ -22,7 +22,25 @@ export class CreateActivityPage {
 
   setInterests(){
     //API call to get interests
-    this.interests=[ {name: 'Food', description: 'Restaurants, Cafes, Bars...' },{name: 'Sports', description: 'Cricket, Football, Basketball...' }, {name: 'Comics', description: 'Discussions, Comic Con, Cosplay...' } ,{name: 'Photography', description: 'Shoots, Exhibitions, Photo Walks...' } ]
+    this.interests=[ 
+    {name: 'Food', description: 'Restaurants, Cafes, Bars...' },
+    {name: 'Sports', description: 'Cricket, Football, Basketball...' }, 
+    {name: 'Comics', description: 'Discussions, Comic Con, Cosplay...' } ,
+    {name: 'Photography', description: 'Shoots, Exhibitions, Photo Walks...' } 
+    {name: 'Photography', description: 'Shoots, Exhibitions, Photo Walks...' } 
+    {name: 'Photography', description: 'Shoots, Exhibitions, Photo Walks...' } 
+    {name: 'Photography', description: 'Shoots, Exhibitions, Photo Walks...' } 
+    {name: 'Photography', description: 'Shoots, Exhibitions, Photo Walks...' } 
+    {name: 'Photography', description: 'Shoots, Exhibitions, Photo Walks...' } 
+    {name: 'Photography', description: 'Shoots, Exhibitions, Photo Walks...' } 
+    {name: 'Photography', description: 'Shoots, Exhibitions, Photo Walks...' } 
+    {name: 'Photography', description: 'Shoots, Exhibitions, Photo Walks...' } 
+    {name: 'Photography', description: 'Shoots, Exhibitions, Photo Walks...' } 
+    {name: 'Photography', description: 'Shoots, Exhibitions, Photo Walks...' } 
+    {name: 'Photography', description: 'Shoots, Exhibitions, Photo Walks...' } 
+    {name: 'Photography', description: 'Shoots, Exhibitions, Photo Walks...' } 
+    {name: 'Photography', description: 'Shoots, Exhibitions, Photo Walks...' } 
+    ]
   }
 
   next(interest){
