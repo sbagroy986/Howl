@@ -2,7 +2,7 @@
   <ion-navbar color="white">
     <div *ngIf="my_profile == false"> 
       <ion-buttons start>
-        <button ion-button icon-only (click)="close()"><ion-icon name="back"></ion-icon></button>
+        <button ion-button icon-only (click)="back()"><ion-icon name="back"></ion-icon></button>
       </ion-buttons>
     </div>
     <ion-title>
@@ -24,15 +24,19 @@
   <ion-row style = "text-align:center">
     <ion-col col-4> <strong> {{user.followers}} </strong> <br> Followers </ion-col>
     <ion-col col-4> <strong> {{user.following}} </strong> <br> Following</ion-col>
-    <ion-col col-4> <strong> {{user.activity_count}} </strong> <br> Activities</ion-col>
+    <ion-col col-4> <strong> {{activity_count}} </strong> <br> Activities</ion-col>
   </ion-row>
 </ion-grid>
 <div style="margin-left: 12px;">
 <h6><strong>{{user.name}}</strong></h6>
- {{user.interests}}
+ <p><b>Interested in:</b></p> {{interests}}
 <br/>
- Age {{user.age}}
 <br/>
+<br/>
+Age range: {{age_string}} 
+<br/>
+<br/>
+Gender: {{user.gender}}
 </div>
 <hr>
 <div style="margin-left: 12px;">

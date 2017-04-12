@@ -32,10 +32,10 @@ export class LoginPage {
     .then(function(response){
       let userId = response.authResponse.userID;
       let params = new Array();
-        
+      console.log(response);
 
       //Getting name and gender properties
-      Facebook.api("/me?fields=name,gender", params)
+      Facebook.api("/me?fields=name,gender,age_range", params)
       .then(function(user) {
 
         user.picture = "https://graph.facebook.com/" + userId + "/picture?type=large";
@@ -45,6 +45,7 @@ export class LoginPage {
           name: user.name,
           gender: user.gender,
           picture: user.picture,
+          age_range: user.age_range,
           user_id: userId
         }).then(function(){
           nav.setRoot(MiddlePage);
