@@ -9,6 +9,51 @@
 </ion-header>
 
 
-<ion-content padding>
-<button (click)="doFbLogin()">Login with Twitter</button>
+
+
+<ion-content>
+
+<ion-slides pager>
+
+  <ion-slide style="background-color: #717D7E">
+    <img style="height: 100px" src="./assets/img/select.png" >
+    <br>
+    <br>
+    <br>
+    <div style="color: white">
+    <h2>SELECT YOUR INTERESTS</h2>
+    </div>
+  </ion-slide>
+
+  <ion-slide style="background-color: #717D7E">
+    <img style="height: 100px" src="./assets/img/search.png" >
+    <br>
+    <br>
+    <br>
+    <div style="color: white">
+    <h2>EXPLORE INTERESTING ACTIVITIES</h2>
+    </div>  
+    </ion-slide>
+
+   <ion-slide style="background-color: #717D7E">
+    <img style="height: 100px" src="./assets/img/howlout.svg" >
+    <br>
+    <br>
+    <br>
+    <div style="color: white">
+    <div style="margin-left: 10px; margin-right: 10px">
+    <h2>HOWL OUT TO PEOPLE WHO SHARE YOUR INTERESTS</h2>
+    </div>
+    </div>
+  </ion-slide>
+
+  <ion-slide style="background-color: #717D7E">
+    <h2>HOWL LOGO</h2>
+    <div style="bottom: 45px; position: absolute; margin-left: 35px">
+	<button ion-button large (click)="doFbLogin()">Login with Facebook</button>
+	</div>
+  </ion-slide>
+
+</ion-slides>
+
 </ion-content>
