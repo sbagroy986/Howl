@@ -47,6 +47,7 @@ export class ActivityTitlePage {
   }
 
   next(){
+    console.log("HERE");
   	console.log(this.title);
   	this.navCtrl.push(ActivityResultsPage, {
   		interest:this.interest,
