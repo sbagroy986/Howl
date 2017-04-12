@@ -1,3 +1,5 @@
+import {Http,Headers,RequestOptions} from '@angular/http';
+import { NativeStorage } from 'ionic-native';
 import { Component } from '@angular/core';
 import { ModalController, NavController, NavParams } from 'ionic-angular';
 import { FilterPage } from '../filter/filter'
@@ -11,13 +13,11 @@ import { UserProfilesPage } from '../user-profiles/user-profiles'
 export class HomePage {
   public auth_user:any;
   public activities=[];
-  public filters={gender: false, following: false, interests: false};
+  public filters={gender_male: false,gender_female: false,interests_only: true};
   user: any;
   activity:any;
 
-  constructor(public navCtrl: NavController, public modalCtrl: ModalController,public navParams: NavParams) {
-
-  	this.initActivities(this.navParams);
+  constructor(public http: Http,public navCtrl: NavController, public modalCtrl: ModalController,public navParams: NavParams) {
   }
 
   viewUser(user){
@@ -32,18 +32,6 @@ export class HomePage {
     });
   }
 
-  initActivities(params){
-  	if (!params.get('activities')){
-  		this.fetchAllActivities();
-  	}
-  	else {
-  		this.activities=params.get('activities');
-  	}
-  }
-
-  filterData(activities,filter){
-    //add code for filtering
-  }
 
   interested(activity_id){
     //add code for send interested in activity call(activity_id,this.user);
@@ -73,11 +61,34 @@ export class HomePage {
   	let param={filters: filters}
   	let addModal = this.modalCtrl.create(FilterPage,param);
     addModal.onDidDismiss((filters_selected) => {
-          if(filters_selected){
-          	this.filterData(this.activities,filters_selected);
-          }
     });
     addModal.present();
+  }
+
+  clearData(){
+    this.activities=[];
+    NativeStorage.getItem('auth_user').then(data=>{
+      this.getFeed(this.auth_user);
+    });    
+  }
+
+
+  ionViewWillEnter(){
+    this.clearData(); 
+  }
+
+  getFeed(user){
+  let env=this;
+  let headers: Headers = new Headers({'Content-Type': 'application/json'});
+  let options = new RequestOptions({ headers: headers });
+  let params= JSON.stringify(user);
+  this.http.post('http://192.168.58.47:5000/get_feed',
+      params, {
+          headers: headers
+      })
+    .map(res => res.json()).subscribe(data =>{
+      console.log(data);
+    });
   }
 
 }

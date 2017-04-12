@@ -27,7 +27,7 @@ export class CreateActivityPage {
 
   next(interest){
   	this.navCtrl.push(ActivityWhenPage,{
-  		interest:interest
+  		interest:interest['name']
   	});
   }
 
