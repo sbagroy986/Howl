@@ -35,8 +35,22 @@ export class HomePage {
 
 
   interested(activity){
-    let button=(<HTMLInputElement>document.getElementById(activity['activity_id']));
     this.setInterested(activity);
+  }
+
+  change_button(activity,resp){
+    let button=(<HTMLInputElement>document.getElementById(activity['activity_id']));
+    if (resp["interested"])
+    {
+     console.log("here");
+     button.style.background='green';    
+   }
+    else
+    {
+      console.log("here2");
+      button.style.background='#b89981';
+    }
+
   }
 
   openFilter(filters){
@@ -50,10 +64,10 @@ export class HomePage {
   clearData(){
     this.activities=[];
     NativeStorage.getItem('auth_user').then(data=>{
+      this.auth_user=data;
       this.getFeed(data);
     });    
   }
-
 
   ionViewWillEnter(){
     this.clearData(); 
@@ -74,16 +88,17 @@ export class HomePage {
   }
 
   setInterested(activity){
-    console.log("here");
     let headers: Headers = new Headers({'Content-Type': 'application/json'});
     let options = new RequestOptions({ headers: headers });
+    console.log(this.auth_user);
     let params= JSON.stringify({'activity':activity,'user':this.auth_user});
     this.http.post('http://192.168.58.47:5000/set_interested',
         params, {
             headers: headers
         })
       .map(res => res.json()).subscribe(data =>{
-        console.log(data);
+        console.log("here_ret");
+        this.change_button(activity,data);
       });
   }
 
