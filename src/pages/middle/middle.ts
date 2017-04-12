@@ -41,7 +41,7 @@ findUser(user){
 	  .map(res => res.json()).subscribe(data =>{
 	  	console.log(data);
 	  	if (data['new_user']){
-	  		this.navCtrl.setRoot(ChooseInterestPage,{user: data});
+	  		this.navCtrl.setRoot(ChooseInterestPage,{auth_user: data});
 	  	}
 	  	else{
 	  		NativeStorage.setItem('auth_user',data).then(function(){

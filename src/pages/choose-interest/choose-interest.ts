@@ -70,8 +70,10 @@ export class ChooseInterestPage {
         });
         }
         else {
-           this.navCtrl.pop();
-          }
+          NativeStorage.setItem('auth_user',data).then(function(){
+            env.navCtrl.pop();
+        });
+        }
     });    
   }
 }
