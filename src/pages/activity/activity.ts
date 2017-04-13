@@ -88,6 +88,7 @@ export class ActivityPage {
         if(this.activity['user_id']==this.auth_user['user_id']){
           this.my_activity=true;
         }
+        this.interested_users=data['interested'];
       });    
   }
 
