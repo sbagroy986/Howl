@@ -6,10 +6,10 @@
     <ion-buttons end>
       <button ion-button icon-only color="main" (click)="openFilter(filters)"><ion-icon name="funnel"></ion-icon></button>
     </ion-buttons>
-    <ion-buttons start>
+<!--     <ion-buttons start>
       <button ion-button icon-only color="main"> <ion-icon name="search"></ion-icon></button>
     </ion-buttons>
-  </ion-navbar>
+ -->  </ion-navbar>
 </ion-header>
 
 
@@ -36,7 +36,15 @@
         <span>{{activity['going'].length}}</span><span class="light"> going</span>
       </ion-card-content>
 
-      <div class="row">
+      <div *ngIf="activity.user_id === auth_user.user_id" class="row">
+        <div class="col col-6"  align="center">
+          <button ion-button color="main" style="width:98%;background: green" id="{{activity['activity_id']}}">Interested</button>
+        </div>
+        <div class="col col-6" align="center">
+          <button ion-button color="main" style="width:98%" outline>Share</button>
+        </div>
+      </div>
+      <div *ngIf="activity.user_id != auth_user.user_id" class="row">
         <div class="col col-6"  align="center">
           <button ion-button color="main" style="width:98%" (click)="interested(activity)" id="{{activity['activity_id']}}">Interested</button>
         </div>

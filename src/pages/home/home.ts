@@ -65,8 +65,25 @@ export class HomePage {
     this.activities=[];
     NativeStorage.getItem('auth_user').then(data=>{
       this.auth_user=data;
-      this.getFeed(data);
+      this.refreshData(data);
     });    
+  }
+
+  refreshData(user){
+      let headers: Headers = new Headers({'Content-Type': 'application/json'});
+      let options = new RequestOptions({ headers: headers });
+      let params= JSON.stringify(user);
+      this.http.post('http://192.168.58.47:5000/refresh_user',
+          params, {
+              headers: headers
+          })
+        .map(res => res.json()).subscribe(data =>{
+            this.auth_user=data;
+            NativeStorage.setItem('auth_user',data).then(data=>{
+              this.getFeed(this.auth_user);
+            })
+        });
+
   }
 
   ionViewWillEnter(){

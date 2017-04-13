@@ -45,7 +45,8 @@ export class UserProfilesPage {
     NativeStorage.getItem('auth_user').then(data=>{
       this.auth_user=data;
       console.log(data);
-      if (this.user == null || (this.user!=null && (this.auth_user['user_id']==this.user['user_id']))) this.user=this.auth_user;this.my_profile=true;
+      if (this.user == null || (this.user!=null && (this.auth_user['user_id']==this.user['user_id']))) {this.user=this.auth_user;this.my_profile=true;}
+      else {this.my_profile=false;}
       this.loadInterests();
       this.loaded=true;
     });

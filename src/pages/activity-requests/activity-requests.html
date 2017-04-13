@@ -5,9 +5,6 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-buttons start>
-    <button ion-button icon-only (click)="back()"><ion-icon name="back"></ion-icon></button>
-  </ion-buttons>
   <ion-navbar>
     <ion-title>Requests</ion-title>
   </ion-navbar>
@@ -26,13 +23,12 @@
 	        </ion-col>
 	        <ion-col col-5>
 				<p>{{user.name}}</p>
-				<p>Age: 16</p>
 	        </ion-col>
 	        <ion-col col-4>
 		      <ion-row>
 	        	<ion-col col-5 >
 	        		<div align="left">	
-		        	<button ion-button  color="danger" class="danger round-button" small >
+		        	<button ion-button (click)="reject(user)" color="danger" class="danger round-button" small >
 		        		 <ion-icon name="close"></ion-icon>
 		        	</button>
 		        	</div>
@@ -41,7 +37,7 @@
 	        	</ion-col>
 	        	<ion-col col-5>	
 	        		<div align="right">	
-		        	<button ion-button color="secondary" class="success round-button" small>
+		        	<button ion-button (click)="accept(user)" color="secondary" class="success round-button" small>
 		        		<ion-icon name="checkmark"></ion-icon>
 		        	</button>
 		        	</div>
