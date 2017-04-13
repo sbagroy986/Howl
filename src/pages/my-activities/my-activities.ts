@@ -1,3 +1,5 @@
+import { Http,Headers,RequestOptions} from '@angular/http';
+import { NativeStorage } from 'ionic-native';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { ActivityPage } from '../activity/activity'
@@ -13,50 +15,42 @@ import { ActivityPage } from '../activity/activity'
   templateUrl: 'my-activities.html'
 })
 export class MyActivitiesPage {
-  public my_activities=[];
+  public activities=[];
   public auth_user:any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  	this.fetchMyActivities(this.auth_user);
+  constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  fetchMyActivities(user){
-  	//query server/DB to get active activities(user);
-  	this.my_activities=[
-      {
-        id:1,
-        name: "Lunch at Epicuria", 
-        picture: "./assets/img/img (6).jpg", 
-        creator: {name: "Ramit Shah", id: 1},
-        going:[
-          {
-            name: "Person1", picture:"https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQRvcAa7nl4uoVvuBEgV8wYEI1AIai17PXtUbZvyLU3fqAKKT6GpUeWgMM"
-          },
-          {
-            name: "Person2", picture: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQRvcAa7nl4uoVvuBEgV8wYEI1AIai17PXtUbZvyLU3fqAKKT6GpUeWgMM"
-          }
-        ]
-      },
-      {
-        id:2,
-        name: "Party at HKV!", 
-        picture: "./assets/img/img (13).jpg", 
-        creator: {name: "Rhea Chawla", id: 2}, 
-        going:[
-          {
-            name: "Person1", picture:"https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQRvcAa7nl4uoVvuBEgV8wYEI1AIai17PXtUbZvyLU3fqAKKT6GpUeWgMM"},
-      {name: "Person2", picture: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQRvcAa7nl4uoVvuBEgV8wYEI1AIai17PXtUbZvyLU3fqAKKT6GpUeWgMM"},
-      {name: "Person3", picture:"https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQRvcAa7nl4uoVvuBEgV8wYEI1AIai17PXtUbZvyLU3fqAKKT6GpUeWgMM"},
-      {name: "Person4", picture: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQRvcAa7nl4uoVvuBEgV8wYEI1AIai17PXtUbZvyLU3fqAKKT6GpUeWgMM"}]}
-    ];
+  clearData(){
+    this.activities=[];
+    NativeStorage.getItem('auth_user').then(data=>{
+      this.auth_user=data;
+      this.getActivities(data);
+    });    
+  }
 
-    this.auth_user={id: 1};
+  ionViewWillEnter(){
+    this.clearData(); 
   }
 
   openActivity(activity){
   	this.navCtrl.push(ActivityPage, {
   		activity: activity
   	});
+  }
+
+  getActivities(user){
+    let headers: Headers = new Headers({'Content-Type': 'application/json'});
+    let options = new RequestOptions({ headers: headers });
+    let params= JSON.stringify({'user':user});
+    this.http.post('http://192.168.58.47:5000/my_activities',
+        params, {
+            headers: headers
+        })
+      .map(res => res.json()).subscribe(data =>{
+        this.activities=data['activities'][0];
+        console.log(this.activities);
+      });
   }
 
 }

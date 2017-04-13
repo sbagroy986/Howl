@@ -37,12 +37,28 @@ export class ChooseInterestPage {
   initInterests(){
     this.interests = 
       [
-        {name:'Food',userInterest:false, imageUrl:"../assets/img/img (14).png"}, 
-        {name:'Photography',userInterest:false, imageUrl:"../assets/img/img (10).png"},
-        {name:'History',userInterest:false, imageUrl:"../assets/img/img (4).png"},
-        {name:'Books',userInterest:false, imageUrl:"../assets/img/img (8).png"},
-        {name:'Party',userInterest:false, imageUrl:"../assets/img/img (7).png"},
-        {name:'Comics',userInterest:false, imageUrl:"../assets/img/img (12).png"}
+        {name:'Food',userInterest:false}, 
+        {name:'Photos',userInterest:false},
+        {name:'Books',userInterest:false},
+        {name:'Party',userInterest:false},
+        {name:'Comics',userInterest:false},
+        {name:'Sports',userInterest:false},
+        {name:'Fashion',userInterest:false},
+        {name:'Dance',userInterest:false},
+        {name:'Arts',userInterest:false},
+        {name:'LGBTQ',userInterest:false},
+        {name:'Movies',userInterest:false},
+        {name:'Career',userInterest:false},
+        {name:'Pets',userInterest:false},
+        {name:'Writing',userInterest:false},
+        {name:'Music',userInterest:false},
+        {name:'Technology',userInterest:false},
+        {name:'Adventure',userInterest:false},
+        {name:'Travel',userInterest:false},
+        {name:'Language',userInterest:false},
+        {name:'Health',userInterest:false},
+        {name:'Theatre',userInterest:false},
+        {name:'Gaming',userInterest:false},
       ]
   }
 

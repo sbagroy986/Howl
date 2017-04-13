@@ -34,7 +34,7 @@ export class ActivityDetailsPage {
     this.activity['interest']=this.interest;
     this.activity['date']=this.date;
     this.activity['time']=this.time;
-    this.activity['loc']=this.loc;    
+    this.activity['loc']=this.loc;  
     this.activity['title']=this.title;    
   }
 

@@ -19,19 +19,20 @@
 
 <ion-content>
 <div *ngIf="loaded == true"> 
-<img src="{{user.picture}}">
+<img style="margin-left: 80px" src="{{user.picture}}">
 <ion-grid style ="background-color:#f5f5f5 ">
   <ion-row style = "text-align:center">
-    <ion-col col-4> <strong> {{user.followers}} </strong> <br> Followers </ion-col>
-    <ion-col col-4> <strong> {{user.following}} </strong> <br> Following</ion-col>
+    <ion-col col-4> <strong> 0 </strong> <br> Followers </ion-col>
+    <ion-col col-4> <strong> 0 </strong> <br> Following</ion-col>
     <ion-col col-4> <strong> {{activity_count}} </strong> <br> Activities</ion-col>
   </ion-row>
 </ion-grid>
 <div style="margin-left: 12px;">
 <h6><strong>{{user.name}}</strong></h6>
+<hr>
  <p><b>Interested in:</b></p> {{interests}}
 <br/>
-<br/>
+<hr>
 <br/>
 Age range: {{age_string}} 
 <br/>

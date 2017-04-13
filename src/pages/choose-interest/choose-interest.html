@@ -29,23 +29,25 @@
 	    	<div *ngIf="interest.userInterest === true">
 		    	<input type='checkbox' name='{{interest.name}}' value='{{interest.name}}' class="interest" checked="" id='{{interest.name}}'>
 		    	<label for="{{interest.name}}" align="center">
-		    		<img src="{{interest.imageUrl}}" style="width: 80px;height: 80px;">
+		    		<img style="width: 80px;height: 80px; margin-left: 30px" src="./assets/img/{{interest.name}}.jpg"/>
 		    		<br/>
-		    		<span>{{interest.name}}</span>
+		    		<br/>
+		    		<span style="margin-left: 35px">{{interest.name}}</span>
+		    		<br/>
 		    	</label>
 	    	</div>
 	    	<div *ngIf="interest.userInterest === false">
 		    	<input type='checkbox' name='{{interest.name}}' value='{{interest.name}}' class="interest" id='{{interest.name}}'>
 		    	<label for="{{interest.name}}"  align="center">
-		    		<img src="{{interest.imageUrl}}" style="width: 80px;height: 80px;">
+		    		<img  style="width: 80px;height: 80px; margin-left: 30px" src="./assets/img/{{interest.name}}.jpg"/>
 		    		<br/>
-		    		<span>{{interest.name}}</span>
+		    		<br/>
+		    		<span style="margin-left: 35px">{{interest.name}}</span>
+		    		<br/>
 		    	</label>
 	    	</div>
-	    	<!-- {{interest.name}} -->
-	    	<!-- {{interest.userInterest}} -->
 	    </ion-col>
 	  </ion-row>
-	</ion-grid>  	  
+	</ion-grid>
 
 </ion-content>

@@ -1,3 +1,5 @@
+import { Http,Headers,RequestOptions} from '@angular/http';
+import { NativeStorage } from 'ionic-native';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { UserProfilesPage } from '../user-profiles/user-profiles'
@@ -17,18 +19,19 @@ import { ActivityRequestsPage } from '../activity-requests/activity-requests';
 export class ActivityPage {
   public activity:any;
   public going_users=[];
+  public my_activity=false;
   public interested_users=[];
   public going_users_visible=[];
   public left_going:any;
   public more_going:any;
   public auth_user:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public http: Http, public navCtrl: NavController, public navParams: NavParams) {
   	this.setActivity(this.navParams);
   }
 
   setActivity(params){
   	this.activity=params.get('activity');
-    this.going_users=this.activity.going;
+    this.going_users=this.activity['going'];
     this.more_going = false;
     if(this.going_users){
       if(this.going_users.length>3)
@@ -45,12 +48,6 @@ export class ActivityPage {
         this.going_users_visible = this.activity.going;
       }
     }
-    this.auth_user={id: 1};
-    this.interested_users=[
-      {
-        id:3,name: "Person1", picture:"https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQRvcAa7nl4uoVvuBEgV8wYEI1AIai17PXtUbZvyLU3fqAKKT6GpUeWgMM"}, {id:4,name: "Person2", picture: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQRvcAa7nl4uoVvuBEgV8wYEI1AIai17PXtUbZvyLU3fqAKKT6GpUeWgMM"
-      }
-    ];
   }
 
   close(){
@@ -62,6 +59,38 @@ export class ActivityPage {
   		user: user
   	});
   }
+
+  ionViewWillEnter(){
+    this.clearData(); 
+  }
+
+  clearData(){
+    this.interested_users=[];
+    this.auth_user=[];
+    NativeStorage.getItem('auth_user').then(data=>{
+      console.log("got auth");
+      this.auth_user=data;
+      this.getData();
+    }); 
+  }
+
+  getData(){
+    let headers: Headers = new Headers({'Content-Type': 'application/json'});
+    let options = new RequestOptions({ headers: headers });
+    let params= JSON.stringify({'user':this.auth_user, 'activity':this.activity});
+    this.http.post('http://192.168.58.47:5000/activity_users',
+        params, {
+            headers: headers
+        })
+      .map(res => res.json()).subscribe(data =>{
+        console.log(data);
+        this.going_users=data['going'];
+        if(this.activity['user_id']==this.auth_user['user_id']){
+          this.interested_users=data['interested'];
+        }
+      });    
+  }
+
 
   hide_user(user){
   let button=(<HTMLInputElement>document.getElementById(user.id));
