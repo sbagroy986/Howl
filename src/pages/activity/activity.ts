@@ -85,7 +85,7 @@ export class ActivityPage {
         console.log(data);
         this.going_users=data['going'];
         if(this.activity['user_id']==this.auth_user['user_id']){
-          this.interested_users=data['interested'];
+          this.my_activity=true;
         }
       });    
   }
