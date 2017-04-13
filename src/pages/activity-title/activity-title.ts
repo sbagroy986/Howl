@@ -3,6 +3,7 @@ import { NativeStorage } from 'ionic-native';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { ActivityResultsPage } from '../activity-results/activity-results';
+import { ActivityDetailsPage } from '../activity-details/activity-details';
 
 /*
   Generated class for the ActivityTitle page.
@@ -57,15 +58,26 @@ export class ActivityTitlePage {
             headers: headers
         })
       .map(res => res.json()).subscribe(data =>{
-          this.navCtrl.push(ActivityResultsPage, {
+        if(data['sim_activities'].length==0){
+       this.navCtrl.push(ActivityDetailsPage,{
         interest:this.interest,
         date:this.date,
         time:this.time,
-        location: this.loc,
+        loc: this.loc,
+        title:this.title       
+       }) 
+      }
+    else
+     {
+        this.navCtrl.push(ActivityResultsPage, {
+        interest:this.interest,
+        date:this.date,
+        time:this.time,
+        loc: this.loc,
         title:this.title,
         sim_activities:data['sim_activities']
-    })
-      });          
+    })}
+    });          
 
   }
 

@@ -64,6 +64,9 @@ export class ActivityWherePage {
   }
 
   next(){
+    let n=(<HTMLInputElement>document.getElementById("where_input"));
+    this.where=n.value;
+    console.log(this.where);
     this.navCtrl.push(ActivityTitlePage,{
       interest:this.interest,
       date:this.date,

@@ -7,16 +7,19 @@
 </ion-header>
 
 <ion-content> 
-    <ion-card (click)="openActivity(activity)" *ngFor="let activity of my_activities">
-      <ion-card-content>
+    <ion-card *ngFor="let activity of activities">
+      <ion-card-content (click)="openActivity(activity)">
         <ion-row>
-          <ion-col col-4 class="valign_center">
-            <img src="{{activity.picture}}" class="round-image" />
+            <ion-avatar col-2 item-left>
+              <img src="{{activity['creator']['picture']}}">
+            </ion-avatar>          <ion-col col-8>
+            <h2>{{activity['title']}}</h2>
+            <p color = "main">{{activity['interest']}} </p>
+            <p>{{activity['going'].length}} going </p>
+            <p style="font-size:8px">Created by <b>{{activity['creator']['name']}}</b></p>
           </ion-col>
-          <ion-col col-8>
-            <h2>{{activity.name}}</h2>
-            <p>Created by <b>{{activity.creator.name}}</b></p>
-            <p color = "main">{{activity.going.length}} going </p>
+          <ion-col col-2>
+            <button ion-button icon-only style="background: white;color:#b89981"><ion-icon name="ios-arrow-forward-outline" style="background: white;color:#b89981"></ion-icon></button>
           </ion-col>
         </ion-row>
       </ion-card-content>

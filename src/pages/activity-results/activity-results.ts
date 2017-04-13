@@ -29,6 +29,11 @@ export class ActivityResultsPage {
   	this.loc=this.navParams.get('loc');
   	this.title=this.navParams.get('title');
     this.sim_activities=this.navParams.get('sim_activities');
+    if(this.sim_activities.length === 0){
+      this.createActivity();
+    }
+    console.log("SIM");
+    console.log(this.sim_activities[0]);    
   }
 
   close(){
@@ -49,7 +54,7 @@ export class ActivityResultsPage {
       interest:this.interest,
       date:this.date,
       time:this.time,
-      location: this.loc,
+      loc: this.loc,
       title:this.title       
      })
   }  

@@ -1,4 +1,4 @@
-import {Http,Headers,RequestOptions} from '@angular/http';
+import { Http,Headers,RequestOptions} from '@angular/http';
 import { NativeStorage } from 'ionic-native';
 import { Component } from '@angular/core';
 import { ModalController, NavController, NavParams } from 'ionic-angular';
