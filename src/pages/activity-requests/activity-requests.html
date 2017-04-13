@@ -1,0 +1,62 @@
+<!--
+  Generated template for the ActivityRequests page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Requests</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="panel">
+  <div class="panel">
+
+  <div *ngIf="activity.creator.id == auth_user.id"> 
+	<ion-card *ngFor="let user of interested_users">
+	  <ion-card-content id="{{user.id}}">
+	      <ion-row>
+	        <ion-col col-3>
+	          <img (click)="viewUser(user)" src="{{user.picture}}" class="round-image" />
+	        </ion-col>
+	        <ion-col col-5>
+				<p>{{user.name}}</p>
+				<p>Age: 16</p>
+	        </ion-col>
+	        <ion-col col-4>
+		      <ion-row>
+	        	<ion-col col-5 >
+	        		<div align="left">	
+		        	<button ion-button  color="danger" class="danger round-button" small >
+		        		 <ion-icon name="close"></ion-icon>
+		        	</button>
+		        	</div>
+	        	</ion-col>
+	        	<ion-col col-2>	
+	        	</ion-col>
+	        	<ion-col col-5>	
+	        		<div align="right">	
+		        	<button ion-button color="secondary" class="success round-button" small>
+		        		<ion-icon name="checkmark"></ion-icon>
+		        	</button>
+		        	</div>
+	        	</ion-col>
+	          </ion-row>
+	        </ion-col>
+	      </ion-row>
+	  </ion-card-content>
+	</ion-card>
+
+<!--     <div *ngFor="let user of interested_users">
+      <div id="{{user.id}}">
+        <img (click)="viewUser(user)" src="{{user.picture}}" height="50px" width="50px" style="float:left" /> <p (click)="viewUser(user)">{{user.name}}</p> <button ion-button icon-only (click)="accept(user)"><ion-icon name="checkmark"></ion-icon></button> <button ion-button icon-only (click)="reject(user)"><ion-icon name="close"></ion-icon></button>
+      </div>    
+    </div> -->
+  </div>
+
+  </div>	
+</ion-content>

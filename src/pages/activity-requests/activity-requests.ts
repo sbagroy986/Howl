@@ -1,20 +1,17 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { UserProfilesPage } from '../user-profiles/user-profiles'
-import { ChatPage } from '../chat/chat'
-import { ActivityRequestsPage } from '../activity-requests/activity-requests';
 
 /*
-  Generated class for the Activity page.
+  Generated class for the ActivityRequests page.
 
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 */
 @Component({
-  selector: 'page-activity',
-  templateUrl: 'activity.html'
+  selector: 'page-activity-requests',
+  templateUrl: 'activity-requests.html'
 })
-export class ActivityPage {
+export class ActivityRequestsPage {
   public activity:any;
   public going_users=[];
   public interested_users=[];
@@ -22,10 +19,14 @@ export class ActivityPage {
   public left_going:any;
   public more_going:any;
   public auth_user:any;
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   	this.setActivity(this.navParams);
   }
 
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad ActivityRequestsPage');
+  }
   setActivity(params){
   	this.activity=params.get('activity');
     this.going_users=this.activity.going;
@@ -52,39 +53,9 @@ export class ActivityPage {
       }
     ];
   }
-
   close(){
   	this.navCtrl.pop();
   }
 
-  viewUser(user){
-  	this.navCtrl.push(UserProfilesPage, {
-  		user: user
-  	});
-  }
 
-  hide_user(user){
-  let button=(<HTMLInputElement>document.getElementById(user.id));
-  button.style.visibility="hidden";
-  }
-
-  accept(user){
-  	//DB request to accept(user,activity);
-  	this.hide_user(user);
-  }
-
-  reject(user){
-  	//DB request to reject(user,activity);
-  	this.hide_user(user);  
-  }
-  viewRequests(activity){
-    this.navCtrl.push(ActivityRequestsPage,{
-      activity: activity
-    })    
-  }
-  chat(activity){
-  	this.navCtrl.push(ChatPage,{
-  		activity: activity
-  	})
-  }
 }
