@@ -8,20 +8,38 @@
 	<br/>
 	<br/>
 	<div style="margin-left:25px;color:white">
-	   <div style="color:white;margin-left:30px" (click)="createActivity()"><ion-icon name="ios-add-circle-outline"></ion-icon> Create New Activity</div>
+		<p style="font-size: 16px">Existing activities similar to what you're looking for: </p>
 		<br/>
-		<p>Some activities similar to what you're looking for: </p>
 	   <ion-card (click)="viewActivity(activity)" *ngFor="let activity of sim_activities">
 	      <ion-card-content>
 	        <ion-row>
-	          <ion-col col-8>
-	            <h2>{{activity['title']}}</h2>
+	          <ion-col col-9>
+	            <h2><b>{{activity['title']}}</b></h2>
 	            <p>Created by <b>{{activity['creator']['name']}}</b></p>
-	            <p color = "main">{{activity['going'].length}} going </p>
+	          </ion-col>
+	          <ion-col col-3>
+	            <img src="{{activity['creator']['picture']}}" class="round-image" />
 	          </ion-col>
 	        </ion-row>
+	            <!-- <br/> -->
+	            <!-- <br/> -->
+	            <!-- <span> -->
+	            <!-- </span> -->
+	            <!-- <br/> -->
+	            <p color = "main">{{activity['going'].length}} going </p>
 	      </ion-card-content>
-    </ion-card> 		
+    </ion-card> 
+	</div>
+    <br/>
+    <br/>
+    <br/>
+	<div style="color:white;margin-left:25px" (click)="createActivity()"> 
+	   <span style="font-size: 16px">
+	   If none of the existing activities satisfy your criteria, <br/>
+	   Create a new activity
+	   &nbsp;
+	   <ion-icon name="ios-arrow-dropright-circle-outline"></ion-icon>
+	   </span>
 	</div>
 	<br/>
 </ion-content>
