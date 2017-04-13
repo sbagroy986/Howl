@@ -18,7 +18,7 @@
 
   <div *ngIf="activity.creator.id == auth_user.id"> 
 	<ion-card *ngFor="let user of interested_users">
-	  <ion-card-content id="{{user.id}}">
+	  <ion-card-content id="{{user.user_id}}">
 	      <ion-row>
 	        <ion-col col-3>
 	          <img (click)="viewUser(user)" src="{{user.picture}}" class="round-image" />

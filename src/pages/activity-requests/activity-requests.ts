@@ -24,9 +24,6 @@ export class ActivityRequestsPage {
   	this.setActivity(this.navParams);
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ActivityRequestsPage');
-  }
   setActivity(params){
   	this.activity=params.get('activity');
     this.going_users=this.activity.going;

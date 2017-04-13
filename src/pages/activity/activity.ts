@@ -91,29 +91,17 @@ export class ActivityPage {
       });    
   }
 
-
-  hide_user(user){
-  let button=(<HTMLInputElement>document.getElementById(user.id));
-  button.style.visibility="hidden";
-  }
-
-  accept(user){
-  	//DB request to accept(user,activity);
-  	this.hide_user(user);
-  }
-
-  reject(user){
-  	//DB request to reject(user,activity);
-  	this.hide_user(user);  
-  }
-  viewRequests(activity){
+  viewRequests(){
     this.navCtrl.push(ActivityRequestsPage,{
-      activity: activity
+      activity: this.activity,
+      interested_users: this.interested_users
     })    
   }
+ 
   chat(activity){
   	this.navCtrl.push(ChatPage,{
   		activity: activity
   	})
   }
+
 }
