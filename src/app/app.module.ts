@@ -22,6 +22,7 @@ import { ActivityTimePage } from '../pages/activity-time/activity-time';
 import { ActivityTitlePage } from '../pages/activity-title/activity-title';
 import { ActivityWhatPage } from '../pages/activity-what/activity-what';
 import { ActivityWhenPage } from '../pages/activity-when/activity-when';
+import { ActivityRequestsPage } from '../pages/activity-requests/activity-requests';
 import { ActivityResultsPage } from '../pages/activity-results/activity-results';
 import { ActivityWherePage } from '../pages/activity-where/activity-where';
 import { ActivityDetailsPage } from '../pages/activity-details/activity-details';
@@ -52,6 +53,7 @@ import { Geolocation } from '@ionic-native/geolocation';
     ActivityTitlePage,
     ActivityWhatPage,
     ActivityWhenPage,
+    ActivityRequestsPage,
     ActivityResultsPage,
     ActivityWherePage,
     ActivityDetailsPage,
@@ -81,6 +83,7 @@ import { Geolocation } from '@ionic-native/geolocation';
     ActivityTitlePage,
     ActivityWhatPage,
     ActivityWhenPage,
+    ActivityRequestsPage,
     ActivityResultsPage,
     ActivityWherePage,
     ActivityDetailsPage,

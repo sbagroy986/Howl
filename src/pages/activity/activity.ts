@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { UserProfilesPage } from '../user-profiles/user-profiles'
 import { ChatPage } from '../chat/chat'
+import { ActivityRequestsPage } from '../activity-requests/activity-requests';
 
 /*
   Generated class for the Activity page.
@@ -105,7 +106,11 @@ export class ActivityPage {
   	//DB request to reject(user,activity);
   	this.hide_user(user);  
   }
-
+  viewRequests(activity){
+    this.navCtrl.push(ActivityRequestsPage,{
+      activity: activity
+    })    
+  }
   chat(activity){
   	this.navCtrl.push(ChatPage,{
   		activity: activity

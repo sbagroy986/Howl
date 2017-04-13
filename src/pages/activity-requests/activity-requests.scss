@@ -1,0 +1,35 @@
+page-activity-requests {
+	.panel{
+		background-color: #F5F5F5;	
+	}
+	.round-image{
+		width: 50px;
+		height: 50px;
+
+		/* fill the container, preserving aspect ratio, and cropping to fit */
+		background-size: cover;
+
+		/* center the image vertically and horizontally */
+		background-position: center;
+
+		/* round the edges to a circle with border radius 1/2 container size */
+		border-radius: 50%;
+	}
+	.round-button{
+		border-radius: 50%;
+	}
+	.success{
+		background-color: #5CB85C;
+	}
+	.danger{
+		background-color: #D9534F;
+	}
+	.unread{
+		background-color: #B89981;
+		height: 8px;
+		width: 8px;
+		border-radius: 50%;
+		margin:auto ;
+		vertical-align: center;
+	}
+}
