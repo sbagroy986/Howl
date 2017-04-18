@@ -34,7 +34,7 @@ findUser(user){
 	let headers: Headers = new Headers({'Content-Type': 'application/json'});
 	let options = new RequestOptions({ headers: headers });
 	let params= JSON.stringify(user);
-	this.http.post('http://192.168.58.47:5000/user_login',
+	this.http.post('http://192.168.1.6:5000/user_login',
       params, {
           headers: headers
       })

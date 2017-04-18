@@ -8,7 +8,7 @@ import { UserProfilesPage } from '../user-profiles/user-profiles'
 
 @Component({
   selector: 'page-home',
-  templateUrl: 'home.html'
+  templateUrl: 'home.html',
 })
 export class HomePage {
   public auth_user:any;
@@ -73,7 +73,7 @@ export class HomePage {
       let headers: Headers = new Headers({'Content-Type': 'application/json'});
       let options = new RequestOptions({ headers: headers });
       let params= JSON.stringify(user);
-      this.http.post('http://192.168.58.47:5000/refresh_user',
+      this.http.post('http://192.168.1.6:5000/refresh_user',
           params, {
               headers: headers
           })
@@ -90,17 +90,31 @@ export class HomePage {
     this.clearData(); 
   }
 
+  showFeed(){
+    for (let i=0; i<this.activities.length;i++){
+      if ((this.auth_user['user_id'] === this.activities[i]['user_id']) || (this.auth_user['user_id'] in this.activities[i]['going']))
+        {
+          this.activities[i]['show']=false;
+        }
+        else{
+          this.activities[i]['show']=true;
+        }
+
+    }
+  }
+
  getFeed(user){
   let headers: Headers = new Headers({'Content-Type': 'application/json'});
   let options = new RequestOptions({ headers: headers });
   let params= JSON.stringify(user);
-  this.http.post('http://192.168.58.47:5000/get_feed',
+  this.http.post('http://192.168.1.6:5000/get_feed',
       params, {
           headers: headers
       })
     .map(res => res.json()).subscribe(data =>{
       console.log(data);
       this.activities=data['feed'];
+      this.showFeed();
     });
   }
 
@@ -109,7 +123,7 @@ export class HomePage {
     let options = new RequestOptions({ headers: headers });
     console.log(this.auth_user);
     let params= JSON.stringify({'activity':activity,'user':this.auth_user});
-    this.http.post('http://192.168.58.47:5000/set_interested',
+    this.http.post('http://192.168.1.6:5000/set_interested',
         params, {
             headers: headers
         })

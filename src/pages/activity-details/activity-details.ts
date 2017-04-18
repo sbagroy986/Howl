@@ -71,7 +71,7 @@ export class ActivityDetailsPage {
     let options = new RequestOptions({ headers: headers });
     let params= JSON.stringify({user: user, activity: activity} );
 
-    this.http.post('http://192.168.58.47:5000/create_activity',params, {
+    this.http.post('http://192.168.1.6:5000/create_activity',params, {
             headers: headers
         })
       .map(res => res.json()).subscribe(data =>{

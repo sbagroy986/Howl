@@ -78,7 +78,7 @@ export class ActivityPage {
     let headers: Headers = new Headers({'Content-Type': 'application/json'});
     let options = new RequestOptions({ headers: headers });
     let params= JSON.stringify({'user':this.auth_user, 'activity':this.activity});
-    this.http.post('http://192.168.58.47:5000/activity_users',
+    this.http.post('http://192.168.1.6:5000/activity_users',
         params, {
             headers: headers
         })

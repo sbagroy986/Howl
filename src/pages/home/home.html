@@ -36,15 +36,15 @@
         <span>{{activity['going'].length}}</span><span class="light"> going</span>
       </ion-card-content>
 
-      <div *ngIf="activity.user_id === auth_user.user_id" class="row">
+      <div *ngIf="activity['show'] === true" class="row">
         <div class="col col-6"  align="center">
-          <button ion-button color="main" style="width:98%;background: green" id="{{activity['activity_id']}}">Interested</button>
+          <button ion-button color="main" style="width:98%;background: green" id="{{activity['activity_id']}}">Going</button>
         </div>
         <div class="col col-6" align="center">
           <button ion-button color="main" style="width:98%" outline>Share</button>
         </div>
-      </div>
-      <div *ngIf="activity.user_id != auth_user.user_id" class="row">
+      </div>      
+      <div *ngIf="activity['show'] === false" class="row">
         <div class="col col-6"  align="center">
           <button ion-button color="main" style="width:98%" (click)="interested(activity)" id="{{activity['activity_id']}}">Interested</button>
         </div>

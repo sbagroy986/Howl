@@ -43,13 +43,15 @@ export class MyActivitiesPage {
     let headers: Headers = new Headers({'Content-Type': 'application/json'});
     let options = new RequestOptions({ headers: headers });
     let params= JSON.stringify({'user':user});
-    this.http.post('http://192.168.58.47:5000/my_activities',
+    this.http.post('http://192.168.1.6:5000/my_activities',
         params, {
             headers: headers
         })
       .map(res => res.json()).subscribe(data =>{
-        this.activities=data['activities'][0];
+        this.activities=data['activities'];
+        console.log("here1");
         console.log(this.activities);
+        console.log("here2");
       });
   }
 

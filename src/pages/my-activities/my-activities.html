@@ -8,17 +8,17 @@
 
 <ion-content> 
     <ion-card *ngFor="let activity of activities">
-      <ion-card-content (click)="openActivity(activity)">
+      <ion-card-content (click)="openActivity(activity[0])">
         <ion-row>
             <ion-avatar col-2 item-left>
             <br/>
-              <img src="{{activity['creator']['picture']}}" style="border-radius: 1px">
+              <img src="{{activity[0]['creator']['picture']}}" style="border-radius: 1px">
             </ion-avatar>          
           <ion-col col-8>
-            <h2>{{activity['title']}}</h2>
+            <h2>{{activity[0]['title']}}</h2>
             <p color = "main">{{activity['interest']}} </p>
-            <p>{{activity['going'].length}} going </p>
-            <p style="font-size:8px">Created by <b>{{activity['creator']['name']}}</b></p>
+            <p>{{activity[0]['going'].length}} going </p>
+            <p style="font-size:8px">Created by <b>{{activity[0]['creator']['name']}}</b></p>
           </ion-col>
           <ion-col col-2>
             <br/>
