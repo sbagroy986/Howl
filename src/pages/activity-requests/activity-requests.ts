@@ -43,7 +43,7 @@ export class ActivityRequestsPage {
     let options = new RequestOptions({ headers: headers });
     let params= JSON.stringify({"user":user,"activity":this.activity});
 
-    this.http.post('http://192.168.1.6:5000/accept_request',params, {
+    this.http.post('http://35.154.250.88:5000/accept_request',params, {
             headers: headers
         })
       .map(res => res.json()).subscribe(data =>{
@@ -57,7 +57,7 @@ export class ActivityRequestsPage {
     let options = new RequestOptions({ headers: headers });
     let params= JSON.stringify({"user":user,"activity":this.activity});
 
-    this.http.post('http://192.168.1.6:5000/reject_request',params, {
+    this.http.post('http://35.154.250.88:5000/reject_request',params, {
             headers: headers
         })
       .map(res => res.json()).subscribe(data =>{

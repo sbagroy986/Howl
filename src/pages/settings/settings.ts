@@ -83,7 +83,7 @@ deleteAccount(){
     let options = new RequestOptions({ headers: headers });
     let params= JSON.stringify(this.auth_user);
 
-    this.http.post('http://192.168.1.6:5000/delete_account',params, {
+    this.http.post('http://35.154.250.88:5000/delete_account',params, {
             headers: headers
         })
       .map(res => res.json()).subscribe(data =>{

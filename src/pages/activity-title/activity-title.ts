@@ -54,7 +54,7 @@ export class ActivityTitlePage {
     let options = new RequestOptions({ headers: headers });
     let params= JSON.stringify({'interest':this.interest,'date':this.date,'time':this.time,'location': this.loc,'title':this.title,});
 
-    this.http.post('http://192.168.1.6:5000/search_activities',params, {
+    this.http.post('http://35.154.250.88:5000/search_activities',params, {
             headers: headers
         })
       .map(res => res.json()).subscribe(data =>{

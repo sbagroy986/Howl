@@ -74,7 +74,7 @@ export class ChooseInterestPage {
     let options = new RequestOptions({ headers: headers });
     let params= JSON.stringify({user:this.user,interests:this.interests});
 
-    this.http.post('http://192.168.1.6:5000/save_interests',
+    this.http.post('http://35.154.250.88:5000/save_interests',
         params, {
             headers: headers
         })

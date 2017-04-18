@@ -73,7 +73,7 @@ export class HomePage {
       let headers: Headers = new Headers({'Content-Type': 'application/json'});
       let options = new RequestOptions({ headers: headers });
       let params= JSON.stringify(user);
-      this.http.post('http://192.168.1.6:5000/refresh_user',
+      this.http.post('http://35.154.250.88:5000/refresh_user',
           params, {
               headers: headers
           })
@@ -107,7 +107,7 @@ export class HomePage {
   let headers: Headers = new Headers({'Content-Type': 'application/json'});
   let options = new RequestOptions({ headers: headers });
   let params= JSON.stringify(user);
-  this.http.post('http://192.168.1.6:5000/get_feed',
+  this.http.post('http://35.154.250.88:5000/get_feed',
       params, {
           headers: headers
       })
@@ -123,7 +123,7 @@ export class HomePage {
     let options = new RequestOptions({ headers: headers });
     console.log(this.auth_user);
     let params= JSON.stringify({'activity':activity,'user':this.auth_user});
-    this.http.post('http://192.168.1.6:5000/set_interested',
+    this.http.post('http://35.154.250.88:5000/set_interested',
         params, {
             headers: headers
         })
