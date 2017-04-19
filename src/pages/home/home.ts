@@ -94,10 +94,10 @@ export class HomePage {
     for (let i=0; i<this.activities.length;i++){
       if ((this.auth_user['user_id'] === this.activities[i]['user_id']) || (this.auth_user['user_id'] in this.activities[i]['going']))
         {
-          this.activities[i]['show']=false;
+          this.activities[i]['show']=true;
         }
         else{
-          this.activities[i]['show']=true;
+          this.activities[i]['show']=false;
         }
 
     }
